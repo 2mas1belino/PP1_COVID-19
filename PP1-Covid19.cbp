@@ -39,6 +39,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="gestaoMembros.h" />
+		<Unit filename="gestaoMenu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="gestaoMenu.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
