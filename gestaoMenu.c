@@ -1,13 +1,9 @@
 #include <stdio.h>
 #include <string.h>
-#include <locale.h>
-
 #include "gestaoMenu.h"
 #include "funcoesGenericas.h"
 
-int menuPrincipal(int nrMembros, int nrTestesAgendados, int nrTestesRealizados, int nrMembrosVacinados){
-
-    setlocale(LC_ALL,"Portuguese");
+int menuPrincipal(int nrMembros, int nrTestesAgendados, int nrTestesRealizados, int nrMembrosVacinados) {
 
     int opcao;
 
