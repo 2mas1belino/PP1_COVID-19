@@ -25,10 +25,9 @@
 
 1640815365 c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\gestaomembros.h
 
-1640824649 source:c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\gestaomenu.c
+1640876904 source:c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\gestaomenu.c
 	<stdio.h>
 	<string.h>
-	<locale.h>
 	"gestaoMenu.h"
 	"funcoesGenericas.h"
 

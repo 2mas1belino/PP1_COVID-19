@@ -11,6 +11,6 @@ int main()
 
     int opcao;
 
-    opcao = menuPrincipal(2, 2, 2, 2);
+    opcao = menuPrincipal(1, 1, 1, 1);
     return 0;
 }
