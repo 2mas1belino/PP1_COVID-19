@@ -1,10 +1,17 @@
 #include <stdio.h>
 #include <string.h>
+<<<<<<< HEAD
 
 #include "gestaoMenu.h"
 #include "funcoesGenericas.h"
 
 int menuPrincipal(int nrMembros, int nrTestesAgendados, int nrTestesRealizados, int nrMembrosVacinados){
+=======
+#include "gestaoMenu.h"
+#include "funcoesGenericas.h"
+
+int menuPrincipal(int nrMembros, int nrTestesAgendados, int nrTestesRealizados, int nrMembrosVacinados) {
+>>>>>>> b61434339d946ad3fce0a8739a8f19ff343d31a9
 
     int opcao;
 
