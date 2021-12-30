@@ -8,7 +8,9 @@
 int main()
 {
     setlocale(LC_ALL, "Portuguese");
-    printf("Mekie");
-    printf("Umbelino");
+
+    int opcao;
+
+    opcao = menuPrincipal(2, 2, 2, 2);
     return 0;
 }

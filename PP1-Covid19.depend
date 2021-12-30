@@ -11,3 +11,33 @@
 
 1640457597 c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19\funcoesgenericas.h
 
+1640823957 source:c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\funcoesgenericas.c
+	<stdio.h>
+	<string.h>
+	"funcoesGenericas.h"
+
+1640823938 c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\funcoesgenericas.h
+
+1640823876 source:c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\gestaomembros.c
+	<stdio.h>
+	<string.h>
+	"gestaoMembros.h"
+
+1640815365 c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\gestaomembros.h
+
+1640824649 source:c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\gestaomenu.c
+	<stdio.h>
+	<string.h>
+	<locale.h>
+	"gestaoMenu.h"
+	"funcoesGenericas.h"
+
+1640824537 c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\gestaomenu.h
+
+1640824537 source:c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\main.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	"funcoesGenericas.h"
+	"gestaoMenu.h"
+

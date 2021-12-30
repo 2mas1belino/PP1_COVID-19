@@ -17,7 +17,7 @@ void lerSring(char msg[], char texto[], int tamanho, int obrigatorio)
     while (tamTexto == 1 && obrigatorio == SIM);
 
     if (texto[tamTexto-1] != '\n')
-        limpaBuffer();
+        limparBuffer();
     else
         texto[tamTexto-1] = '\0';
 }
@@ -39,7 +39,7 @@ tipoData lerData(char msg[], int minAno, int maxAno)
         {
             printf("%s", msg);
             controlo = scanf("%d/%d/%d", &data.dia, &data.mes, &data.ano);
-            limpaBuffer();
+            limparBuffer();
             if (controlo != 3) // retorno do scanf
                 printf("\nERRO: Formato de Data Inválido.\n");
         }
@@ -100,7 +100,7 @@ int lerInteiro (char msg[], int limMin, int limMax)
     {
         printf("%s [%d, %d]: ", msg, limMin, limMax);
         controlo = scanf("%d", &num);
-        limpaBuffer();
+        limparBuffer();
         if (controlo != 1 || num < limMin || num > limMax)
             printf("\n\nERRO: O valor introduzido está fora do intervalo solicitado.");
     }
@@ -117,7 +117,7 @@ float lerFloat (char msg[], float limMin, float limMax)
     {
         printf("%s [%.2f, %.2f]: ", msg, limMin, limMax);
         controlo = scanf("%f", &num);
-        limpaBuffer();
+        limparBuffer();
         if (controlo != 1 || num < limMin || num > limMax)
             printf("\n\nERRO: O valor introduzido está fora do intervalo solicitado.");
     }
@@ -126,7 +126,7 @@ float lerFloat (char msg[], float limMin, float limMax)
 }
 
 
-void limpaBuffer(void)
+void limparBuffer(void)
 {
     char chr;
     do

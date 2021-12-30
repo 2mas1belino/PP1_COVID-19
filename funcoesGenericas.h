@@ -13,6 +13,6 @@ int lerInteiro (char msg[], int limMin, int limMax);
 float lerFloat (char msg[], float limMin, float limMax);
 tipoData lerData(char msg[], int minAno, int maxAno);
 void escreverData (tipoData data);
-void limpaBuffer(void);
+void limparBuffer(void);
 
 #endif // FUNCOESGENERICAS_H_INCLUDED
