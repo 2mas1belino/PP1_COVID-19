@@ -4,6 +4,12 @@
 #include "funcoesGenericas.h"
 
 #define MAX_STRING 50
+
+#define MIN_ANO 1900
+#define MAX_ANO 2050
+#define ANO_ATUAL 2022
+
+#define MIN_MEMBROS 1
 #define MAX_MEMBROS 200
 
 #define ESTUDANTE 0
@@ -44,6 +50,8 @@ typedef struct {
     tipoHora horaColheita;
     tipoHora tempoDuracao;
 }tipoTeste;
+
+void lerDadosMembro(tipoMembro vetorMembros[], int *numMembros);
 
 
 #endif // GESTAOMEMBROS_H_INCLUDED

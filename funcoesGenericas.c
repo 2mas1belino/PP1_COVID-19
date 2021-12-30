@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+
 #include "funcoesGenericas.h"
 
 void lerSring(char msg[], char texto[], int tamanho, int obrigatorio)
@@ -8,7 +9,7 @@ void lerSring(char msg[], char texto[], int tamanho, int obrigatorio)
 
     do
     {
-        printf("%s", msg);
+        printf(" %s", msg);
         fgets(texto, tamanho, stdin);
         tamTexto = strlen(texto);
         if (tamTexto == 1 && obrigatorio == SIM) // significa que o utilizador só clicou no ENTER
@@ -30,14 +31,14 @@ void escreverData (tipoData data)
 tipoData lerData(char msg[], int minAno, int maxAno)
 {
     tipoData data;
-    int controlo, maxDia, erro=0;
+    int controlo, maxDia, erro = 0;
 
     do
     {
         erro = 0;
         do
         {
-            printf("%s", msg);
+            printf(" %s", msg);
             controlo = scanf("%d/%d/%d", &data.dia, &data.mes, &data.ano);
             limparBuffer();
             if (controlo != 3) // retorno do scanf
@@ -92,16 +93,19 @@ tipoData lerData(char msg[], int minAno, int maxAno)
 }
 
 
-int lerInteiro (char msg[], int limMin, int limMax)
+int lerInteiro (char msg[], int limMin, int limMax, int obrigatorio)
 {
     int num, controlo;
 
     do
     {
-        printf("%s [%d, %d]: ", msg, limMin, limMax);
+        printf(" %s [%d, %d]: ", msg, limMin, limMax);
         controlo = scanf("%d", &num);
+        if (controlo != 1)
+            if(obrigatorio == SIM)
+                printf("\nERRO: O campo é obrigatório.\n");
         limparBuffer();
-        if (controlo != 1 || num < limMin || num > limMax)
+        if (num < limMin || num > limMax)
             printf("\n\nERRO: O valor introduzido está fora do intervalo solicitado.");
     }
     while (controlo != 1 || num < limMin || num > limMax);
@@ -115,7 +119,7 @@ float lerFloat (char msg[], float limMin, float limMax)
 
     do
     {
-        printf("%s [%.2f, %.2f]: ", msg, limMin, limMax);
+        printf(" %s [%.2f, %.2f]: ", msg, limMin, limMax);
         controlo = scanf("%f", &num);
         limparBuffer();
         if (controlo != 1 || num < limMin || num > limMax)

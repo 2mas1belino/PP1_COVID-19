@@ -13,7 +13,7 @@ typedef struct{
 } tipoData;
 
 void lerSring(char msg[], char texto[], int tamanho, int obrigatorio);
-int lerInteiro (char msg[], int limMin, int limMax);
+int lerInteiro (char msg[], int limMin, int limMax, int obrigatorio);
 float lerFloat (char msg[], float limMin, float limMax);
 tipoData lerData(char msg[], int minAno, int maxAno);
 void escreverData (tipoData data);

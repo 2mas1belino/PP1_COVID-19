@@ -4,13 +4,16 @@
 
 #include "funcoesGenericas.h"
 #include "gestaoMenu.h"
+#include "gestaoMembros.h"
 
 int main()
 {
     setlocale(LC_ALL, "Portuguese");
 
-    int opcao;
+    int opcao, numMembros = 0;
+    tipoMembro vetorMembros[MAX_MEMBROS];
 
-    opcao = menuPrincipal(1, 1, 1, 1);
+    //opcao = menuPrincipal(numMembros, 1, 1, 1);
+    lerDadosMembro(vetorMembros, &numMembros);
     return 0;
 }

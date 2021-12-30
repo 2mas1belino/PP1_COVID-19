@@ -11,22 +11,23 @@
 
 1640457597 c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19\funcoesgenericas.h
 
-1640882077 source:c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\funcoesgenericas.c
+1640886657 source:c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\funcoesgenericas.c
 	<stdio.h>
 	<string.h>
 	"funcoesGenericas.h"
 
-1640882077 c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\funcoesgenericas.h
+1640886657 c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\funcoesgenericas.h
 
-1640882507 source:c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\gestaomembros.c
+1640889042 source:c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\gestaomembros.c
 	<stdio.h>
 	<string.h>
+	"funcoesGenericas.h"
 	"gestaoMembros.h"
 
-1640882077 c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\gestaomembros.h
+1640889003 c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\gestaomembros.h
 	"funcoesGenericas.h"
 
-1640882507 source:c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\gestaomenu.c
+1640882709 source:c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\gestaomenu.c
 	<stdio.h>
 	<string.h>
 	"gestaoMenu.h"
@@ -34,12 +35,13 @@
 
 1640882077 c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\gestaomenu.h
 
-1640882077 source:c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\main.c
+1640888554 source:c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\main.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
 	"funcoesGenericas.h"
 	"gestaoMenu.h"
+	"gestaoMembros.h"
 
 1640875485 source:c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\funcoesgenericas.c
 	<stdio.h>
