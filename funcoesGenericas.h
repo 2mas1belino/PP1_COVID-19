@@ -4,6 +4,10 @@
 #define SIM 1
 #define NAO 0
 
+typedef struct {
+    int hora, minuto, segundo;
+} tipoHora;
+
 typedef struct{
     int dia, mes, ano;
 } tipoData;
