@@ -3,6 +3,10 @@
 #include "gestaoMenu.h"
 #include "funcoesGenericas.h"
 
+void divisorCMD() {
+    printf("\n\n=========================================================================================\n\n");
+}
+
 int menuPrincipal(int nrMembros, int nrTestesAgendados, int nrTestesRealizados, int nrMembrosVacinados) {
 
     int opcao;
@@ -20,8 +24,30 @@ int menuPrincipal(int nrMembros, int nrTestesAgendados, int nrTestesRealizados, 
     printf("\n[0] - Sair.");
     printf("\n\nEscolha uma das opções: ");
 
-    scanf("%c",opcao);
+    scanf("%d",&opcao);
     limparBuffer();
 
     return opcao;
 }
+
+int menuMembros(int numMembros, int numMembrosVacinados) {
+    divisorCMD();
+    int opcao;
+
+    printf("\n**********************************************************");
+    printf("\n*\t\t\tGESTAO COVID-19 - MEMBROS\t *");
+    printf("\n**********************************************************");
+    printf("\n   Membros registados: %4d", numMembros);
+    printf("\n   Membros vacinados: %4d", numMembrosVacinados);
+    printf("\n**********************************************************");
+    printf("\n[1] - Adicionar Membro;");
+    printf("\n[2] - Listar todos Membros;");
+    printf("\n[0] - Sair.");
+    printf("\n\nEscolha uma das opções: ");
+
+    scanf("%d",&opcao);
+    limparBuffer();
+
+    return opcao;
+}
+

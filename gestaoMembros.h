@@ -52,6 +52,7 @@ typedef struct {
 }tipoTeste;
 
 void lerDadosMembro(tipoMembro vetorMembros[], int *numMembros);
+void listarDadosMembro(tipoMembro membro[], int numMembros);
 
 
 #endif // GESTAOMEMBROS_H_INCLUDED

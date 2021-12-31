@@ -43,31 +43,33 @@
 	"gestaoMenu.h"
 	"gestaoMembros.h"
 
-1640875485 source:c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\funcoesgenericas.c
+1640972892 source:c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\funcoesgenericas.c
 	<stdio.h>
 	<string.h>
 	"funcoesGenericas.h"
 
-1640880233 c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\funcoesgenericas.h
+1640972892 c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\funcoesgenericas.h
 
-1640879493 source:c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\gestaomembros.c
+1640976932 source:c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\gestaomembros.c
 	<stdio.h>
 	<string.h>
+	"funcoesGenericas.h"
 	"gestaoMembros.h"
 
-1640880713 c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\gestaomembros.h
+1640974972 c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\gestaomembros.h
 	"funcoesGenericas.h"
 
-1640877417 source:c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\main.c
+1640976666 source:c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\main.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
 	"funcoesGenericas.h"
 	"gestaoMenu.h"
+	"gestaoMembros.h"
 
-1640875485 c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\gestaomenu.h
+1640976984 c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\gestaomenu.h
 
-1640877454 source:c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\gestaomenu.c
+1640976980 source:c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\gestaomenu.c
 	<stdio.h>
 	<string.h>
 	"gestaoMenu.h"
