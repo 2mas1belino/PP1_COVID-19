@@ -11,31 +11,31 @@
 
 1640457597 c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19\funcoesgenericas.h
 
-1640886657 source:c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\funcoesgenericas.c
+1641158857 source:c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\funcoesgenericas.c
 	<stdio.h>
 	<string.h>
 	"funcoesGenericas.h"
 
-1640886657 c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\funcoesgenericas.h
+1641158857 c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\funcoesgenericas.h
 
-1640889042 source:c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\gestaomembros.c
+1641159716 source:c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\gestaomembros.c
 	<stdio.h>
 	<string.h>
 	"funcoesGenericas.h"
 	"gestaoMembros.h"
 
-1640889003 c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\gestaomembros.h
+1641148065 c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\gestaomembros.h
 	"funcoesGenericas.h"
 
-1640882709 source:c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\gestaomenu.c
+1641146112 source:c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\gestaomenu.c
 	<stdio.h>
 	<string.h>
 	"gestaoMenu.h"
 	"funcoesGenericas.h"
 
-1640882077 c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\gestaomenu.h
+1641146112 c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\gestaomenu.h
 
-1640888554 source:c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\main.c
+1641146112 source:c:\users\tomas\onedrive\desktop\my stuff\ipl\p1\teste2\pp1-main\main.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
@@ -43,31 +43,33 @@
 	"gestaoMenu.h"
 	"gestaoMembros.h"
 
-1640875485 source:c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\funcoesgenericas.c
+1640972892 source:c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\funcoesgenericas.c
 	<stdio.h>
 	<string.h>
 	"funcoesGenericas.h"
 
-1640880233 c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\funcoesgenericas.h
+1640972892 c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\funcoesgenericas.h
 
-1640879493 source:c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\gestaomembros.c
+1640976932 source:c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\gestaomembros.c
 	<stdio.h>
 	<string.h>
+	"funcoesGenericas.h"
 	"gestaoMembros.h"
 
-1640880713 c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\gestaomembros.h
+1640974972 c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\gestaomembros.h
 	"funcoesGenericas.h"
 
-1640877417 source:c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\main.c
+1640976666 source:c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\main.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
 	"funcoesGenericas.h"
 	"gestaoMenu.h"
+	"gestaoMembros.h"
 
-1640875485 c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\gestaomenu.h
+1640976984 c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\gestaomenu.h
 
-1640877454 source:c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\gestaomenu.c
+1640976980 source:c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\gestaomenu.c
 	<stdio.h>
 	<string.h>
 	"gestaoMenu.h"

@@ -51,7 +51,9 @@ typedef struct {
     tipoHora tempoDuracao;
 }tipoTeste;
 
+int lerNumUtente (char msg[], int obrigatorio);
 void lerDadosMembro(tipoMembro vetorMembros[], int *numMembros);
+void listarDadosMembro(tipoMembro membro[], int numMembros);
 
 
 #endif // GESTAOMEMBROS_H_INCLUDED
