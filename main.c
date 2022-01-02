@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
+#include <math.h>
 
 #include "funcoesGenericas.h"
 #include "gestaoMenu.h"
@@ -11,7 +12,8 @@ int main()
     setlocale(LC_ALL, "Portuguese");
 
     tipoMembro vetorMembros[MAX_MEMBROS];
-    int  numMembros = 0;
+    int numMembros = 0;
+    int numTestes = 0;
     int opcao = 54;
 
     do
@@ -24,26 +26,31 @@ int main()
                 switch (opcao)
                 {
                 case 1 :
-                      lerDadosMembro(vetorMembros, &numMembros);
-                      break;
+                    divisorCMD();
+                    lerDadosMembro(vetorMembros, &numMembros);
+                    break;
                 case 2:
+                      divisorCMD();
                       listarDadosMembro(vetorMembros, numMembros);
                       break;
                 }
                 break;
             case 2:
+                divisorCMD();
+                atualizarEstadoVacinacao(vetorMembros,numMembros);
                 break;
             case 3:
+                divisorCMD();
                 break;
             case 4:
+                divisorCMD();
                 break;
             case 0:
+                divisorCMD();
                 break;
             default:
                 printf("\nERRO: opção inválida\n\n");
         }
     } while(opcao != 0);
-
-    printf("BBBBB");
     return 0;
 }

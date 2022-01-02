@@ -20,10 +20,10 @@
 #define QUARENTENA 1
 #define ISOLAMENTO 2
 
-#define SEM_VACINA 0
 #define DOSE1 1
 #define DOSE2 2
 #define DOSE3 3
+#define SEM_VACINA 4
 
 #define TESTE_PCR 0
 #define TESTE_ANTIGENIO 1
@@ -53,6 +53,7 @@ typedef struct {
 
 void lerDadosMembro(tipoMembro vetorMembros[], int *numMembros);
 void listarDadosMembro(tipoMembro membro[], int numMembros);
+void atualizarEstadoVacinacao(tipoMembro membro[], int numMembros);
 
 
 #endif // GESTAOMEMBROS_H_INCLUDED
