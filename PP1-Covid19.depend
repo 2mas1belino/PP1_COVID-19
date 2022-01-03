@@ -56,13 +56,14 @@
 	"funcoesGenericas.h"
 	"gestaoMembros.h"
 
-1641148397 c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\gestaomembros.h
+1641231408 c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\gestaomembros.h
 	"funcoesGenericas.h"
 
-1641148468 source:c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\main.c
+1641231434 source:c:\users\renat\documents\engenharia informatica - 1º ano\programação 1\pp1-covid19-projeto\main.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
+	<math.h>
 	"funcoesGenericas.h"
 	"gestaoMenu.h"
 	"gestaoMembros.h"

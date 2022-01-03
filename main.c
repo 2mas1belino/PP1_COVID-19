@@ -27,7 +27,7 @@ int main()
                 {
                 case 1 :
                     divisorCMD();
-                    lerDadosMembro(vetorMembros, &numMembros);
+                    registarMembro(vetorMembros, &numMembros);
                     break;
                 case 2:
                       divisorCMD();
@@ -37,10 +37,11 @@ int main()
                 break;
             case 2:
                 divisorCMD();
-                atualizarEstadoVacinacao(vetorMembros,numMembros);
+                atualizarEstadoVacinacao(vetorMembros, numMembros);
                 break;
             case 3:
                 divisorCMD();
+                atualizarEstadoConfinamento(vetorMembros, numMembros);
                 break;
             case 4:
                 divisorCMD();
