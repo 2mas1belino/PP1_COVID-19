@@ -4,6 +4,33 @@
 #include "funcoesGenericas.h"
 #include "gestaoMembros.h"
 
+int lerNumUtente (char msg[], int obrigatorio)
+{
+    int num, controlo, numDigitos;
+
+    do
+    {
+        printf(" %s: ", msg);
+        controlo = scanf("%d", &num);
+        if (controlo != 1)
+            if(obrigatorio == SIM)
+                printf("\nERRO: O campo é obrigatório!\n");
+        limparBuffer();
+
+        numDigitos = 0;
+
+        while(num!=0){
+            num/=10;
+            numDigitos++;
+        }
+
+        if (numDigitos < 9 || numDigitos > 9)
+            printf("\nERRO: Insira um número de utente válido!\n");
+    }
+    while (numDigitos < 9 || numDigitos > 9);
+    return num;
+}
+
 void agendarTeste(tipoTeste teste[], tipoMembro membro[], int *numTestes){
     if(*numTestes >= 15) {
        printf("\n\nERRO: Limite maximo de testes realizados no dia ");
