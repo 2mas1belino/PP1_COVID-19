@@ -4,39 +4,12 @@
 #include "funcoesGenericas.h"
 #include "gestaoMembros.h"
 
-int lerNumUtente (char msg[], int obrigatorio)
-{
-    int num, controlo, numDigitos;
-
-    do
-    {
-        printf(" %s: ", msg);
-        controlo = scanf("%d", &num);
-        if (controlo != 1)
-            if(obrigatorio == SIM)
-                printf("\nERRO: O campo é obrigatório!\n");
-        limparBuffer();
-
-        numDigitos = 0;
-
-        while(num!=0){
-            num/=10;
-            numDigitos++;
-        }
-
-        if (numDigitos < 9 || numDigitos > 9)
-            printf("\nERRO: Insira um número de utente válido!\n");
-    }
-    while (numDigitos < 9 || numDigitos > 9);
-    return num;
-}
-
-void agendarTeste(tipoTeste teste[], tipoMembro membro[], int *numTestes){
+/*void agendarTeste(tipoTeste teste[], tipoMembro membro[], int *numTestes){
     if(*numTestes >= 15) {
        printf("\n\nERRO: Limite maximo de testes realizados no dia ");
        escreverData(teste.dataRealizacao);
     }
-}
+}*/
 
 void atualizarEstadoConfinamento(tipoMembro membro[], int numMembros) {
     int valorConfinamento, numUtente, posicaoMembro = -1;
@@ -47,7 +20,7 @@ void atualizarEstadoConfinamento(tipoMembro membro[], int numMembros) {
         printf("\n**********************************************************");
         do {
             printf("\nIndique o Número de Utente do membro: ");
-            numUtente = lerInteiro("",0,999999999,SIM);
+            numUtente = lerInteiroDigitos("", 9, SIM);
 
             for(int i = 0; i <= numMembros; i++) {
                 if(numUtente = membro[i].numUtente)
@@ -86,7 +59,7 @@ void atualizarEstadoVacinacao(tipoMembro membro[], int numMembros) {
         printf("\n**********************************************************");
         do {
             printf("\nIndique o Numero de Utente do membro: ");
-            numUtente = lerInteiro("",0,999999999,SIM);
+            numUtente = lerInteiroDigitos("", 9, SIM);
 
             for(int i = 0; i <= numMembros; i++) {
                 if(numUtente = membro[i].numUtente)
@@ -127,7 +100,7 @@ void registarMembro(tipoMembro vetorMembros[], int *numMembros)
         printf("\n\nERRO: Limite máximo de membros registados atingidos!");
     else
     {
-        vetorMembros[*numMembros].numUtente = lerInteiro("\n*Número de utente", 0, 999999999, SIM);
+        vetorMembros[*numMembros].numUtente = lerInteiroDigitos("\n*Número de utente", 9, SIM);
         //if numUtente já existe perguntar se quer efetivamente adicionar um membro ou não
         lerSring("\n*Nome: ", vetorMembros[*numMembros].nome, MAX_STRING, SIM);
         vetorMembros[*numMembros].entidade = lerInteiro("\n*Entidade:\n\n\t0 - Estudante;\n\t1 - Docente;\n\t2 - Técnico.\n\n\tEscolha uma das opções", 0, 2, SIM);

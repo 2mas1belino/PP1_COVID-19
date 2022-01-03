@@ -57,5 +57,4 @@ void atualizarEstadoVacinacao(tipoMembro membro[], int numMembros);
 void atualizarEstadoConfinamento(tipoMembro membro[], int numMembros);
 void agendarTeste(tipoTeste teste[], tipoMembro membro[], int *numTestes);
 
-
 #endif // GESTAOMEMBROS_H_INCLUDED
