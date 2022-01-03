@@ -11,18 +11,65 @@
     }
 }*/
 
-void atualizarEstadoConfinamento(tipoMembro membro[], int numMembros) {
+void escreverFichBinario(tipoMembro vetorMembros[MAX_MEMBROS], int numMembros)
+{
+    FILE *ficheiro;
+
+    ficheiro = fopen("dadosMembros.dat","wb");
+    if (ficheiro == NULL)
+    {
+        printf ("\n\nERRO: Não foi possível abrir \"dadosMembros.dat\"!");
+    }
+    else
+    {
+        fwrite(&numMembros,sizeof(int),1,ficheiro);
+        fwrite(vetorMembros,sizeof(tipoMembro),MAX_MEMBROS,ficheiro);
+        fclose(ficheiro);
+    }
+}
+
+void escreveFichTexto(tipoMembro vetorMembros[MAX_MEMBROS], int numMembros)
+{
+    FILE *ficheiro;
+    int i;
+    ficheiro = fopen("dadosMembros.txt","w");
+    if (ficheiro == NULL)
+    {
+        printf ("\n\nERRO: Não foi possível abrir \"dadosMembros.txt\"!");
+    }
+    else
+    {
+        fprintf(ficheiro,"%d\n", numMembros);
+        for (i=0; i<numMembros; i++)
+        {
+            fprintf(ficheiro,"%d\n",vetorMembros[i].numUtente);
+            fprintf(ficheiro,"%s\n",vetorMembros[i].nome);
+            fprintf(ficheiro,"%d\n",vetorMembros[i].entidade);
+            fprintf(ficheiro,"%s\n",vetorMembros[i].dataNascimento);
+            fprintf(ficheiro,"%d\n",vetorMembros[i].estadoConfinamento);
+            fprintf(ficheiro,"%d\n",vetorMembros[i].estadoVacinacao);
+            fprintf(ficheiro,"%s\n",vetorMembros[i].ultimaVacina);
+        }
+        fclose(ficheiro);
+    }
+}
+
+void atualizarEstadoConfinamento(tipoMembro membro[], int numMembros)
+{
     int valorConfinamento, numUtente, posicaoMembro = -1;
 
     if(numMembros == 0)
         printf("\n\nERRO: Não existem membros registados.\n\n");
-    else {
+    else
+    {
         printf("\n**********************************************************");
-        do {
+        do
+        {
             printf("\nIndique o Número de Utente do membro: ");
             numUtente = lerInteiroDigitos("", 9, SIM);
 
-            for(int i = 0; i <= numMembros; i++) {
+            for(int i = 0; i <= numMembros; i++)
+            {
                 if(numUtente = membro[i].numUtente)
                     posicaoMembro = i;
             }
@@ -30,7 +77,8 @@ void atualizarEstadoConfinamento(tipoMembro membro[], int numMembros) {
             if(posicaoMembro == -1)
                 printf("\nERRO: O Número de Utente inserido não é válido.");
 
-        } while(posicaoMembro == -1);
+        }
+        while(posicaoMembro == -1);
 
         printf("\n**********************************************************");
         printf("\nIndique o Estado de Confinamento de %s", membro[posicaoMembro].nome);
@@ -43,25 +91,30 @@ void atualizarEstadoConfinamento(tipoMembro membro[], int numMembros) {
         valorConfinamento = lerInteiro("",0,3,SIM);
         if(valorConfinamento == 0)
             return;
-        else {
+        else
+        {
             membro[posicaoMembro].estadoConfinamento = valorConfinamento;
             printf("\nEstado de vacinação atualizado com sucesso.");
         }
     }
 }
 
-void atualizarEstadoVacinacao(tipoMembro membro[], int numMembros) {
+void atualizarEstadoVacinacao(tipoMembro membro[], int numMembros)
+{
     int valorVacina, numUtente, posicaoMembro = -1;
 
     if(numMembros == 0)
         printf("\n\nERRO: Não existem membros registados.\n\n");
-    else {
+    else
+    {
         printf("\n**********************************************************");
-        do {
+        do
+        {
             printf("\nIndique o Numero de Utente do membro: ");
             numUtente = lerInteiroDigitos("", 9, SIM);
 
-            for(int i = 0; i <= numMembros; i++) {
+            for(int i = 0; i <= numMembros; i++)
+            {
                 if(numUtente = membro[i].numUtente)
                     posicaoMembro = i;
             }
@@ -69,7 +122,8 @@ void atualizarEstadoVacinacao(tipoMembro membro[], int numMembros) {
             if(posicaoMembro == -1)
                 printf("\nERRO: O Número de Utente inserido não é válido.");
 
-        } while(posicaoMembro == -1);
+        }
+        while(posicaoMembro == -1);
 
         printf("\n**********************************************************");
         printf("\nIndique o Estado de Vacinação de %s", membro[posicaoMembro].nome);
@@ -84,7 +138,8 @@ void atualizarEstadoVacinacao(tipoMembro membro[], int numMembros) {
 
         if(valorVacina == 0) // Opção Voltar
             return;
-        else {
+        else
+        {
             membro[posicaoMembro].estadoVacinacao = valorVacina;
             printf("\nEstado de vacinação atualizado com sucesso.");
         }
@@ -112,13 +167,16 @@ void registarMembro(tipoMembro vetorMembros[], int *numMembros)
     }
 }
 
-void listarDadosMembro(tipoMembro membro[], int numMembros) {
+void listarDadosMembro(tipoMembro membro[], int numMembros)
+{
     printf("\n-------- MOSTRAR DADOS MEMBRO -------- ");
 
     if(numMembros == 0)
         printf("\nATENÇÃO: Ainda não foram inseridos membros.");
-    else {
-        for(int i = 0; i < numMembros; i++) {
+    else
+    {
+        for(int i = 0; i < numMembros; i++)
+        {
             printf("\n\n---------------------------------------------------------------------------------------------\n");
             printf(" \n\t\tMembro numero: %-3d", i+1);
             printf(" \n\t\tNúmero de Utente: %-5d", membro[i].numUtente);

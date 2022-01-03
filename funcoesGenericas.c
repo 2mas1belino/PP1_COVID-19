@@ -3,7 +3,8 @@
 
 #include "funcoesGenericas.h"
 
-void divisorCMD() {
+void divisorCMD()
+{
     printf("\n\n=========================================================================================\n\n");
 }
 
@@ -133,7 +134,8 @@ int lerInteiroDigitos (char msg[], int tamanho, int obrigatorio)
 
         //divide o int por 10 "apagando" as casas unitárias e conta à medida que as apaga até que o int seja 0
 
-        while(num!=0){
+        while(num!=0)
+        {
             num/=10;
             numDigitos++;
         }
