@@ -18,5 +18,6 @@ float lerFloat (char msg[], float limMin, float limMax);
 tipoData lerData(char msg[], int minAno, int maxAno);
 void escreverData (tipoData data);
 void limparBuffer(void);
+void divisorCMD();
 
 #endif // FUNCOESGENERICAS_H_INCLUDED

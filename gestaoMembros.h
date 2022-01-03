@@ -16,14 +16,14 @@
 #define DOCENTE 1
 #define TECNICO 2
 
-#define NAO_CONFINADO 0
-#define QUARENTENA 1
-#define ISOLAMENTO 2
+#define NAO_CONFINADO 1
+#define QUARENTENA 2
+#define ISOLAMENTO 3
 
-#define SEM_VACINA 0
 #define DOSE1 1
 #define DOSE2 2
 #define DOSE3 3
+#define SEM_VACINA 4
 
 #define TESTE_PCR 0
 #define TESTE_ANTIGENIO 1
@@ -51,7 +51,11 @@ typedef struct {
     tipoHora tempoDuracao;
 }tipoTeste;
 
-void lerDadosMembro(tipoMembro vetorMembros[], int *numMembros);
+void registarMembro(tipoMembro vetorMembros[], int *numMembros);
+void listarDadosMembro(tipoMembro membro[], int numMembros);
+void atualizarEstadoVacinacao(tipoMembro membro[], int numMembros);
+void atualizarEstadoConfinamento(tipoMembro membro[], int numMembros);
+void agendarTeste(tipoTeste teste[], tipoMembro membro[], int *numTestes);
 
 
 #endif // GESTAOMEMBROS_H_INCLUDED

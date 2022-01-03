@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
+#include <math.h>
 
 #include "funcoesGenericas.h"
 #include "gestaoMenu.h"
@@ -10,10 +11,47 @@ int main()
 {
     setlocale(LC_ALL, "Portuguese");
 
-    int opcao, numMembros = 0;
     tipoMembro vetorMembros[MAX_MEMBROS];
+    int numMembros = 0;
+    int numTestes = 0;
+    int opcao = 54;
 
-    //opcao = menuPrincipal(numMembros, 1, 1, 1);
-    lerDadosMembro(vetorMembros, &numMembros);
+    do
+    {
+        opcao = menuPrincipal(numMembros, 1, 1, 1);
+        switch(opcao)
+        {
+            case 1:
+                opcao = menuMembros(numMembros, 1);
+                switch (opcao)
+                {
+                case 1 :
+                    divisorCMD();
+                    registarMembro(vetorMembros, &numMembros);
+                    break;
+                case 2:
+                      divisorCMD();
+                      listarDadosMembro(vetorMembros, numMembros);
+                      break;
+                }
+                break;
+            case 2:
+                divisorCMD();
+                atualizarEstadoVacinacao(vetorMembros, numMembros);
+                break;
+            case 3:
+                divisorCMD();
+                atualizarEstadoConfinamento(vetorMembros, numMembros);
+                break;
+            case 4:
+                divisorCMD();
+                break;
+            case 0:
+                divisorCMD();
+                break;
+            default:
+                printf("\nERRO: opção inválida\n\n");
+        }
+    } while(opcao != 0);
     return 0;
 }
