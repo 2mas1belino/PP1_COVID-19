@@ -52,7 +52,7 @@ typedef struct {
 }tipoTeste;
 
 void escreverFichBinario(tipoMembro vetorMembros[MAX_MEMBROS], int numMembros);
-void escreveFichTexto(tipoMembro vetorMembros[MAX_MEMBROS], int numMembros);
+void escreverFichTexto(tipoMembro vetorMembros[MAX_MEMBROS], int numMembros);
 
 void registarMembro(tipoMembro vetorMembros[], int *numMembros);
 void listarDadosMembro(tipoMembro membro[], int numMembros);

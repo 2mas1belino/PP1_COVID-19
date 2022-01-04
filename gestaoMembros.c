@@ -28,7 +28,7 @@ void escreverFichBinario(tipoMembro vetorMembros[MAX_MEMBROS], int numMembros)
     }
 }
 
-void escreveFichTexto(tipoMembro vetorMembros[MAX_MEMBROS], int numMembros)
+/*void escreverFichTexto(tipoMembro vetorMembros[MAX_MEMBROS], int numMembros)
 {
     FILE *ficheiro;
     int i;
@@ -45,14 +45,18 @@ void escreveFichTexto(tipoMembro vetorMembros[MAX_MEMBROS], int numMembros)
             fprintf(ficheiro,"%d\n",vetorMembros[i].numUtente);
             fprintf(ficheiro,"%s\n",vetorMembros[i].nome);
             fprintf(ficheiro,"%d\n",vetorMembros[i].entidade);
-            fprintf(ficheiro,"%s\n",vetorMembros[i].dataNascimento);
+            fprintf(ficheiro,"%d\n",vetorMembros[i].dataNascimento.dia);
+            fprintf(ficheiro,"%d\n",vetorMembros[i].dataNascimento.mes);
+            fprintf(ficheiro,"%d\n",vetorMembros[i].dataNascimento.ano);
             fprintf(ficheiro,"%d\n",vetorMembros[i].estadoConfinamento);
             fprintf(ficheiro,"%d\n",vetorMembros[i].estadoVacinacao);
-            fprintf(ficheiro,"%s\n",vetorMembros[i].ultimaVacina);
+            fprintf(ficheiro,"%d\n",vetorMembros[i].ultimaVacina.dia);
+            fprintf(ficheiro,"%d\n",vetorMembros[i].ultimaVacina.mes);
+            fprintf(ficheiro,"%d\n",vetorMembros[i].ultimaVacina.ano);
         }
         fclose(ficheiro);
     }
-}
+}*/
 
 void atualizarEstadoConfinamento(tipoMembro membro[], int numMembros)
 {

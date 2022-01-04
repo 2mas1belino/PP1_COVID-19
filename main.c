@@ -28,8 +28,8 @@ int main()
                 case 1 :
                     divisorCMD();
                     registarMembro(vetorMembros, &numMembros);
-                    //escreverFichBinario(vetorMembros, numMembros);
-                    escreveFichTexto(vetorMembros, numMembros);
+                    escreverFichBinario(vetorMembros, numMembros);
+                    //escreverFichTexto(vetorMembros, numMembros);
                     break;
                 case 2:
                       divisorCMD();
