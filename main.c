@@ -45,6 +45,18 @@ int main()
                 break;
             case 4:
                 divisorCMD();
+                opcao = menuTestes(numTestes);
+                switch (opcao)
+                {
+                case 1 :
+                    divisorCMD();
+                    registarMembro(vetorMembros, &numMembros);
+                    break;
+                case 2:
+                      divisorCMD();
+                      listarDadosMembro(vetorMembros, numMembros);
+                      break;
+                }
                 break;
             case 0:
                 divisorCMD();

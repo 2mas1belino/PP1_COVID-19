@@ -46,3 +46,22 @@ int menuMembros(int numMembros, int numMembrosVacinados) {
     return opcao;
 }
 
+int menuTestes(int numTestes) {
+    int opcao;
+
+    printf("\n**********************************************************");
+    printf("\n*\t\t\tGESTAO COVID-19 - TESTES\t *");
+    printf("\n**********************************************************");
+    printf("\n   Testes registados: %4d", numTestes);
+    printf("\n**********************************************************");
+    printf("\n[1] - Adicionar Teste;");
+    printf("\n[2] - Atualizar Teste;");
+    printf("\n[0] - Sair.");
+    printf("\n\nEscolha uma das opções: ");
+
+    scanf("%d",&opcao);
+    limparBuffer();
+
+    return opcao;
+}
+

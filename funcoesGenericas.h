@@ -19,5 +19,6 @@ tipoData lerData(char msg[], int minAno, int maxAno);
 void escreverData (tipoData data);
 void limparBuffer(void);
 void divisorCMD();
+int lerInteiroDigitos (char msg[], int tamanho, int obrigatorio);
 
 #endif // FUNCOESGENERICAS_H_INCLUDED

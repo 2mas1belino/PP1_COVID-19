@@ -3,6 +3,38 @@
 
 #include "funcoesGenericas.h"
 
+int lerInteiroDigitos (char msg[], int tamanho, int obrigatorio)
+{
+    int num, controlo, numDigitos;
+
+    do
+    {
+        printf(" %s: ", msg);
+        controlo = scanf("%d", &num);
+        if (controlo != 1)
+            if(obrigatorio == SIM)
+                printf("\nERRO: O campo é obrigatório!\n");
+        limparBuffer();
+
+        numDigitos = 0;
+
+        //divide o int por 10 "apagando" as casas unitárias e conta à medida que as apaga até que o int seja 0
+
+        int numTemp = num; //perguntar ao Renato uma opinião com isto
+
+        while(numTemp!=0)
+        {
+            numTemp/=10;
+            numDigitos++;
+        }
+
+        if (numDigitos < tamanho || numDigitos > tamanho)
+            printf("\nERRO: Insira um número de utente válido!\n");
+    }
+    while (numDigitos < tamanho || numDigitos > tamanho);
+    return num;
+}
+
 void divisorCMD() {
     printf("\n\n=========================================================================================\n\n");
 }
