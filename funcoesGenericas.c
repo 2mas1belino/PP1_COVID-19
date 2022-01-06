@@ -3,8 +3,7 @@
 
 #include "funcoesGenericas.h"
 
-void divisorCMD()
-{
+void divisorCMD() {
     printf("\n\n=========================================================================================\n\n");
 }
 

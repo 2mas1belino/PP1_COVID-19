@@ -13,53 +13,83 @@ int main()
 
     tipoMembro vetorMembros[MAX_MEMBROS];
     int numMembros = 0;
-    int numTestes = 0;
-    int opcao = 54;
+    int numTestesRealizados = 0;
+    int numTestesAgendados = 0;
+    int numMembrosVacinados = 0;
+    int opcao1, opcao2;
 
     do
     {
-        opcao = menuPrincipal(numMembros, 1, 1, 1);
-        switch(opcao)
+        opcao1 = menuPrincipal(numMembros, numTestesRealizados, numTestesAgendados, numMembrosVacinados);
+        switch(opcao1)
         {
-            case 1:
-                opcao = menuMembros(numMembros, 1);
-                switch (opcao)
+        case 1:
+            do
+            {
+                opcao2 = menuMembros(numMembros, 1);
+                switch (opcao2)
                 {
                 case 1 :
                     divisorCMD();
                     registarMembro(vetorMembros, &numMembros);
                     break;
                 case 2:
-                      divisorCMD();
-                      listarDadosMembro(vetorMembros, numMembros);
-                      break;
+                    divisorCMD();
+                    listarDadosMembro(vetorMembros, numMembros);
+                    break;
+                case 0:
+                    //fazer que volte para o menu principal
+                    break;
+                default:
+                    printf("\n\nERRO: Opção inválida!\n\n");
                 }
-                break;
-            case 2:
-                divisorCMD();
-                atualizarEstadoVacinacao(vetorMembros, numMembros);
-                break;
-            case 3:
-                divisorCMD();
-                atualizarEstadoConfinamento(vetorMembros, numMembros);
-                break;
-            case 4:
-                divisorCMD();
-                break;
-            case 5:
-                divisorCMD();
-                escreverFichBinario(vetorMembros, numMembros);
-                break;
-            case 6:
-                divisorCMD();
-                lerFichBinario(vetorMembros, &numMembros);
-                break;
-            case 0:
-                divisorCMD();
-                break;
-            default:
-                printf("\n\nERRO: Opção inválida!");
+            }
+            while(opcao2 != 0);
+            break;
+        case 2:
+            divisorCMD();
+            atualizarEstadoVacinacao(vetorMembros, numMembros);
+            break;
+        case 3:
+            divisorCMD();
+            atualizarEstadoConfinamento(vetorMembros, numMembros);
+            break;
+        case 4:
+            divisorCMD();
+            do
+            {
+                opcao2 = menuTestes(numTestesRealizados);
+                switch (opcao2)
+                {
+                case 1 :
+                    divisorCMD();
+                    registarMembro(vetorMembros, &numMembros);
+                    break;
+                case 2:
+                    divisorCMD();
+                    listarDadosMembro(vetorMembros, numMembros);
+                    break;
+                default:
+                    printf("\n\nERRO: Opção inválida!\n\n");
+                }
+            }
+            while(opcao2 != 0);
+            break;
+        case 5:
+            divisorCMD();
+            escreverFichBinario(vetorMembros, numMembros);
+            break;
+        case 6:
+            divisorCMD();
+            lerFichBinario(vetorMembros, &numMembros);
+            break;
+        case 0:
+            divisorCMD();
+            break;
+        default:
+            printf("\n\nERRO: Opção inválida!");
         }
-    } while(opcao != 0);
+    }
+    while(opcao1 != 0);
     return 0;
 }

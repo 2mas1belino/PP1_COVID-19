@@ -2,6 +2,7 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
+<<<<<<< HEAD
 	<File name="main.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="779" topLine="18" />
@@ -20,21 +21,54 @@
 	<File name="gestaoMembros.c" open="1" top="1" tabpos="4" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="7392" topLine="171" />
+=======
+	<File name="gestaoMembros.h" open="1" top="1" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="587" topLine="23" />
+>>>>>>> 599e8d50cf8b5727d07492e352182dc284dbff0a
 		</Cursor>
 	</File>
 	<File name="gestaoMenu.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
 		<Cursor>
+<<<<<<< HEAD
 			<Cursor1 position="64" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="gestaoMembros.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="842" topLine="30" />
+=======
+			<Cursor1 position="1821" topLine="30" />
+		</Cursor>
+	</File>
+	<File name="funcoesGenericas.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="920" topLine="117" />
+>>>>>>> 599e8d50cf8b5727d07492e352182dc284dbff0a
 		</Cursor>
 	</File>
 	<File name="gestaoMenu.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
 		<Cursor>
+<<<<<<< HEAD
 			<Cursor1 position="41" topLine="0" />
+=======
+			<Cursor1 position="1390" topLine="41" />
+		</Cursor>
+	</File>
+	<File name="gestaoMenu.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="259" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="gestaoMembros.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2281" topLine="45" />
+		</Cursor>
+	</File>
+	<File name="funcoesGenericas.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="489" topLine="0" />
+>>>>>>> 599e8d50cf8b5727d07492e352182dc284dbff0a
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
