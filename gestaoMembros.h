@@ -51,8 +51,9 @@ typedef struct {
     tipoHora tempoDuracao;
 }tipoTeste;
 
-void escreverFichBinario(tipoMembro vetorMembros[MAX_MEMBROS], int numMembros);
-void escreverFichTexto(tipoMembro vetorMembros[MAX_MEMBROS], int numMembros);
+void escreverFichBinario(tipoMembro vetorMembros[], int numMembros);
+void lerFichBinario(tipoMembro vetorMembros[], int *numMembros);
+//void escreverFichTexto(tipoMembro vetorMembros[], int numMembros);
 
 void registarMembro(tipoMembro vetorMembros[], int *numMembros);
 void listarDadosMembro(tipoMembro membro[], int numMembros);

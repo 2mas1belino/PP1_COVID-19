@@ -28,8 +28,6 @@ int main()
                 case 1 :
                     divisorCMD();
                     registarMembro(vetorMembros, &numMembros);
-                    escreverFichBinario(vetorMembros, numMembros);
-                    //escreverFichTexto(vetorMembros, numMembros);
                     break;
                 case 2:
                       divisorCMD();
@@ -48,11 +46,19 @@ int main()
             case 4:
                 divisorCMD();
                 break;
+            case 5:
+                divisorCMD();
+                escreverFichBinario(vetorMembros, numMembros);
+                break;
+            case 6:
+                divisorCMD();
+                lerFichBinario(vetorMembros, &numMembros);
+                break;
             case 0:
                 divisorCMD();
                 break;
             default:
-                printf("\nERRO: opção inválida\n\n");
+                printf("\n\nERRO: Opção inválida!");
         }
     } while(opcao != 0);
     return 0;

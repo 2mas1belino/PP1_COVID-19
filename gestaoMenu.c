@@ -18,6 +18,8 @@ int menuPrincipal(int nrMembros, int nrTestesAgendados, int nrTestesRealizados, 
     printf("\n[2] - Gerir Estados de vacinação;");
     printf("\n[3] - Gerir Estados de confinamento;");
     printf("\n[4] - Gerir testes de diagnóstico;");
+    printf("\n[5] - Gravar dados em ficheiro;");
+    printf("\n[6] - Ler dados em ficheiro;");
     printf("\n[0] - Sair.");
     printf("\n\nEscolha uma das opções: ");
 
