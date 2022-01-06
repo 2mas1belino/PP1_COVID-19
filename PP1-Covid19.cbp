@@ -43,6 +43,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="gestaoMenu.h" />
+		<Unit filename="gestaoTestagem.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="gestaoTestagem.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
