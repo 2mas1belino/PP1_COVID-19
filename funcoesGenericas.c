@@ -7,7 +7,7 @@ void divisorCMD() {
     printf("\n\n=========================================================================================\n\n");
 }
 
-void lerSring(char msg[], char texto[], int tamanho, int obrigatorio)
+void lerString(char msg[], char texto[], int tamanho, int obrigatorio)
 {
     int tamTexto;
 

@@ -12,7 +12,7 @@ typedef struct{
     int dia, mes, ano;
 } tipoData;
 
-void lerSring(char msg[], char texto[], int tamanho, int obrigatorio);
+void lerString(char msg[], char texto[], int tamanho, int obrigatorio);
 int lerInteiro (char msg[], int limMin, int limMax, int obrigatorio);
 int lerInteiroDigitos (char msg[], int tamanho, int obrigatorio);
 float lerFloat (char msg[], float limMin, float limMax);

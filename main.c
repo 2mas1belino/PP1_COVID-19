@@ -18,6 +18,8 @@ int main()
     int numMembrosVacinados = 0;
     int opcao1, opcao2;
 
+    lerFichBinario(vetorMembros, &numMembros);
+
     do
     {
         opcao1 = menuPrincipal(numMembros, numTestesRealizados, numTestesAgendados, numMembrosVacinados);

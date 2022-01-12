@@ -16,7 +16,7 @@ void registarMembro(tipoMembro vetorMembros[], int *numMembros)
     {
         vetorMembros[*numMembros].numUtente = lerInteiroDigitos("\n*Número de utente", 9, SIM);
         //if numUtente já existe perguntar se quer efetivamente adicionar um membro ou não
-        lerSring("\n*Nome: ", vetorMembros[*numMembros].nome, MAX_STRING, SIM);
+        lerString("\n*Nome: ", vetorMembros[*numMembros].nome, MAX_STRING, SIM);
         vetorMembros[*numMembros].entidade = lerInteiro("\n*Entidade:\n\n\t0 - Estudante;\n\t1 - Docente;\n\t2 - Técnico.\n\n\tEscolha uma das opções", 0, 2, SIM);
         vetorMembros[*numMembros].dataNascimento = lerData("\n*Data de nascimento (Formato: dd/mm/aaaa):", MIN_ANO, MAX_ANO);
         vetorMembros[*numMembros].estadoConfinamento = lerInteiro("\n*Estado de confinamento:\n\n\t0 - Não confinado;\n\t1 - Confinado;\n\t2 - Quarentena.\n\n\tEscolha uma das opções", 0, 2, SIM);
