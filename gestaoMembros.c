@@ -36,25 +36,25 @@ void escreverFichBinario(tipoMembro vetorMembros[], int numMembros)
     ficheiro = fopen("dadosMembros.bin","wb");
     if (ficheiro == NULL)
     {
-        printf ("\n\nERRO: Não foi possível abrir o ficheiro \"dadosMembros.bin\"!");
+        printf ("\n\nERRO: Não foi possível abrir o ficheiro \"dadosMembros.bin\"!\n");
     }
     else
     {
         controlo = fwrite(&numMembros,sizeof(int),1,ficheiro);
         if (controlo != 1)
         {
-            printf("\n\nERRO: Falha na escrita dos dados (1)!");
+            printf("\n\nERRO: Falha na escrita dos dados (1)!\n");
         }
         else
         {
             controlo = fwrite(vetorMembros,sizeof(tipoMembro),numMembros,ficheiro);
             if(controlo != numMembros)
             {
-                printf("\n\nERRO: Falha na escrita dos dados (2)!");
+                printf("\n\nERRO: Falha na escrita dos dados (2)!\n");
             }
             else
             {
-                printf("\n\nMENSAGEM: Gravação feita com sucesso.\n\n");
+                printf("\n\nMENSAGEM: Gravação feita com sucesso.\n");
             }
             fclose(ficheiro);
         }
@@ -69,60 +69,30 @@ void lerFichBinario(tipoMembro vetorMembros[], int *numMembros)
     ficheiro = fopen("dadosMembros.bin","rb");
     if (ficheiro == NULL)
     {
-        printf ("\n\nERRO: Não foi possível abrir o ficheiro \"dadosMembros.bin\"!");
+        printf ("\n\nERRO: Não foi possível abrir o ficheiro \"dadosMembros.bin\"!\n");
     }
     else
     {
         controlo = fread(&*numMembros,sizeof(int),1,ficheiro);
         if (controlo != 1)
         {
-            printf("\n\nERRO: Falha na leitura dos dados (1)!");
+            printf("\n\nERRO: Falha na leitura dos dados (1)!\n");
         }
         else
         {
             controlo = fread(vetorMembros,sizeof(tipoMembro),*numMembros,ficheiro);
             if(controlo != *numMembros)
             {
-                printf("\n\nERRO: Falha na leitura dos dados (2)!");
+                printf("\n\nERRO: Falha na leitura dos dados (2)!\n");
             }
             else
             {
-                printf("\n\nMENSAGEM: Leitura feita com sucesso.\n\n");
+                printf("\n\nMENSAGEM: Leitura feita com sucesso.\n");
             }
             fclose(ficheiro);
         }
     }
 }
-
-/*void escreverFichTexto(tipoMembro vetorMembros[], int numMembros)
-{
-    FILE *ficheiro;
-    int i;
-    ficheiro = fopen("dadosMembros.txt","w");
-    if (ficheiro == NULL)
-    {
-        printf ("\n\nERRO: Não foi possível abrir o ficheiro m\"dadosMembros.txt\"!");
-    }
-    else
-    {
-        fprintf(ficheiro,"%d\n", numMembros);
-        for (i=0; i<numMembros; i++)
-        {
-            fprintf(ficheiro,"%d\n",vetorMembros[i].numUtente);
-            fprintf(ficheiro,"%s\n",vetorMembros[i].nome);
-            fprintf(ficheiro,"%d\n",vetorMembros[i].entidade);
-            fprintf(ficheiro,"%d\n",vetorMembros[i].dataNascimento.dia);
-            fprintf(ficheiro,"%d\n",vetorMembros[i].dataNascimento.mes);
-            fprintf(ficheiro,"%d\n",vetorMembros[i].dataNascimento.ano);
-            fprintf(ficheiro,"%d\n",vetorMembros[i].estadoConfinamento);
-            fprintf(ficheiro,"%d\n",vetorMembros[i].estadoVacinacao);
-            fprintf(ficheiro,"%d\n",vetorMembros[i].ultimaVacina.dia);
-            fprintf(ficheiro,"%d\n",vetorMembros[i].ultimaVacina.mes);
-            fprintf(ficheiro,"%d\n",vetorMembros[i].ultimaVacina.ano);
-        }
-        fclose(ficheiro);
-    }
-}*/
 
 int pesquisaMembro(tipoMembro vetorMembro[], int numMembros, int numUtente)
 {

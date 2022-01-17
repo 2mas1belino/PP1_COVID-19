@@ -3,6 +3,27 @@
 #include "gestaoMembros.h"
 #include "gestaoTestagem.h"
 
+void logTestagem(tipoTeste teste, tipoMembro membro, char resultado[])
+{
+    FILE * ficheiro;
+
+    ficheiro  = fopen("logTestagem.txt", "a");
+
+    if (ficheiro == NULL)
+    {
+        printf("\n\nERRO: Não foi possível abrir o ficheiro \"logTestagem.txt\"!\n");
+    }
+    else
+    {
+        fprintf(ficheiro, "\nResultado: %s", resultado);
+        fprintf(ficheiro, "\nNr. Utente: %d", teste.numUtente);
+        fprintf(ficheiro, "\nNome: %s", membro.nome);
+        fprintf(ficheiro, "\nEstado de Vacinação: %d", membro.estadoVacinacao);
+
+        fclose(ficheiro);
+    }
+}
+
 int pesquisaTeste(tipoTeste vetorTeste[], int numTestes, int idTeste){
     int posicao = -1;
 
@@ -21,7 +42,7 @@ void atualizarTeste(tipoTeste vetorTeste[], int *numTestes)
     int posicaoTeste;
 
     if(*numTestes == 0)
-        printf("\n\nERRO: Não existem testes Registados.");
+        printf("\n\nERRO: Não existem testes registados.\n");
     else {
         idTeste = lerInteiro("\n Indique o código do Teste: ", 1, vetorTeste[*numTestes-1].id, SIM);
         posicaoTeste = pesquisaTeste(vetorTeste, *numTestes, idTeste);

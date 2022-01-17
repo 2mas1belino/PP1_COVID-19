@@ -27,6 +27,7 @@ typedef struct {
     tipoHora tempoDuracao;
 }tipoTeste;
 
+void logTestagem(tipoTeste teste, tipoMembro membro, char resultado[]);
 void agendarTeste(tipoTeste vetorTeste[], tipoMembro vetorMembro[], int *numTestes, int *numTestesDiario, int numMembros);
 void atualizarTeste(tipoTeste vetorTeste[], int *numTestes);
 int pesquisaTeste(tipoTeste vetorTeste[], int numTestes, int idTeste);
