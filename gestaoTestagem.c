@@ -82,40 +82,62 @@ void logTestagem(tipoTeste teste, tipoMembro membro, char resultado[])
     }
 }
 
-/*void listarUmTeste(tipoTeste vetorTeste[], int numTestes, char designacao[])
+void listarUmTeste(tipoTeste vetorTeste[], int numTestes, tipoMembro vetorMembro[], int numMembros)
 {
+    int posicaoTeste = 0, posicaoMembro = 0;
+    char designacao[MAX_STRING];
+
     printf("\n-------- MOSTRAR DADOS DO TESTES -------- ");
 
     if(numTestes == 0)
         printf("\nATENÇÃO: Ainda não foram inseridos testes.");
     else
     {
-        for(int i = 0; i < numTestes; i++)
-        {
-            printf("\n\n---------------------------------------------------------------------------------------------\n");
-            printf(" \n\t\tDesignação: %s", vetorTeste[i].designacao);
-            printf(" \n\t\tNúmero de Utente do membro: %-5d", vetorTeste[i].numUtente);
-            printf(" \n\t\tTeste: ");
-            if(vetorTeste[i].teste == TESTE_PCR)
-                printf("PCR");
-            else
-                printf("ANTIGÉNIO");
-            printf(" \n\t\tData do Teste: ");
-            escreverData(vetorTeste[i].dataRealizacao);
-            printf(" \n\t\tHora de Colheita do Teste: ");
-            escreverHora(vetorTeste[i].horaColheita);
-            printf(" \n\t\tDuração do Teste: %d ", vetorTeste[i].tempoDuracao);
-            switch(vetorTeste[i].resultado)
-            {
-                case POSITIVO: printf(" \n\t\tResultado: POSITIVO"); break;
-                case NEGATIVO: printf(" \n\t\tResultado: NEGATIVO"); break;
-                case INCONCLUSIVO: printf(" \n\t\tResultado: INCONCLUSIVO"); break;
-                default: printf(" \n\t\tResultado: SEM RESULTADO");
+        do {
+            lerString(" \n\nIndique a designação do teste: ", designacao, MAX_STRING, SIM);
+
+            posicaoTeste = pesquisaTeste(vetorTeste,numTestes,designacao);
+
+            if(posicaoTeste == -1) {
+                printf(" \n\nERRO: A designação indicada nao corresponde a nenhum teste.\n");
             }
-            printf("\n\n---------------------------------------------------------------------------------------------\n");
+        }while(posicaoTeste == -1);
+
+        posicaoMembro = pesquisaMembro(vetorMembro, numMembros,vetorTeste[posicaoTeste].numUtente);
+
+        printf("\n\n---------------------------------------------------------------------------------------------\n");
+        printf(" \n\t\tDesignação: %s", vetorTeste[posicaoTeste].designacao);
+        printf(" \n\t\tNúmero de Utente do membro: %-5d", vetorTeste[posicaoTeste].numUtente);
+        printf(" \n\t\tNome do Membro: %s", vetorMembro[posicaoMembro].nome);
+        printf(" \n\t\tEntidade:");
+            if(vetorMembro[posicaoMembro].entidade == ESTUDANTE)
+                printf(" Estudante;");
+            else if(vetorMembro[posicaoMembro].entidade == DOCENTE)
+                printf(" Docente;");
+            else
+                printf(" Técnico;");
+        printf(" \n\t\tTeste: ");
+        if(vetorTeste[posicaoTeste].teste == TESTE_PCR)
+            printf("PCR");
+        else
+            printf("ANTIGÉNIO");
+        printf(" \n\t\tData do Teste: ");
+        escreverData(vetorTeste[posicaoTeste].dataRealizacao);
+        printf(" \n\t\tHora de Colheita do Teste: ");
+        escreverHora(vetorTeste[posicaoTeste].horaColheita);
+        printf(" \n\t\tDuração do Teste: %d ", vetorTeste[posicaoTeste].tempoDuracao);
+
+        switch(vetorTeste[posicaoTeste].resultado)
+        {
+            case POSITIVO: printf(" \n\t\tResultado: POSITIVO"); break;
+            case NEGATIVO: printf(" \n\t\tResultado: NEGATIVO"); break;
+            case INCONCLUSIVO: printf(" \n\t\tResultado: INCONCLUSIVO"); break;
+            default: printf(" \n\t\tResultado: SEM RESULTADO");
         }
+        printf("\n\n---------------------------------------------------------------------------------------------\n");
+
     }
-}*/
+}
 
 void listarTestes(tipoTeste vetorTeste[], int numTestes)
 {

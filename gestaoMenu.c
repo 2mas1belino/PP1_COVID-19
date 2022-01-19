@@ -58,9 +58,10 @@ int menuTestes(int numTestes, int numTestesAgendados, int numTestesRealizados) {
     printf("\n**********************************************************");
     printf("\n   Testes Realizados: %4d \tTestes Agendados: %4d\n   Total de Testes: %4d",numTestesRealizados, numTestesAgendados, numTestes);
     printf("\n**********************************************************");
-    printf("\n[1] - Adicionar Teste;");
+    printf("\n[1] - Agendar Teste;");
     printf("\n[2] - Atualizar Teste;");
     printf("\n[3] - Listar Testes;");
+    printf("\n[4] - Pesquisar um Teste;");
     printf("\n[0] - Voltar.");
     printf("\n\nEscolha uma das opções: ");
 
