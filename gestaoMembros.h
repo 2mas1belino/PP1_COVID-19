@@ -2,8 +2,7 @@
 #define GESTAOMEMBROS_H_INCLUDED
 
 #include "funcoesGenericas.h"
-
-#define MAX_STRING 50
+#include "gestaoTestagem.h"
 
 #define MIN_ANO 1900
 #define MAX_ANO 2050
@@ -36,10 +35,10 @@ void escreverFichBinario(tipoMembro vetorMembros[], int numMembros);
 void lerFichBinario(tipoMembro vetorMembros[], int *numMembros);
 //void escreverFichTexto(tipoMembro vetorMembros[], int numMembros);
 
-void registarMembro(tipoMembro vetorMembros[], int *numMembros);
-void listarDadosMembro(tipoMembro membro[], int numMembros);
-void atualizarEstadoVacinacao(tipoMembro membro[], int numMembros);
-void atualizarEstadoConfinamento(tipoMembro membro[], int numMembros);
+void registarMembro(tipoMembro vetorMembros[], int *numMembros, int *numMembrosVacinados);
+void listarDadosMembro(tipoMembro vetorMembro[], int numMembros, tipoTeste vetorTeste[], int numTestes);
+void atualizarEstadoVacinacao(tipoMembro vetorMembro[], int numMembros, int *numMembrosVacinados);
+void atualizarEstadoConfinamento(tipoMembro vetorMembro[], int numMembros);
 int pesquisaMembro(tipoMembro vetorMembro[], int numMembros, int numUtente);
 
 #endif // GESTAOMEMBROS_H_INCLUDED

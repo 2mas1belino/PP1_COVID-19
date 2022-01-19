@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "gestaoMenu.h"
 #include "funcoesGenericas.h"
+#include "gestaoMembros.h"
+#include "gestaoTestagem.h"
 
 int menuPrincipal(int nrMembros, int nrTestesAgendados, int nrTestesRealizados, int nrMembrosVacinados) {
 
@@ -49,16 +50,17 @@ int menuMembros(int numMembros, int numMembrosVacinados) {
     return opcao;
 }
 
-int menuTestes(int numTestes) {
+int menuTestes(int numTestes, int numTestesAgendados, int numTestesRealizados) {
     int opcao;
 
     printf("\n**********************************************************");
     printf("\n*\t\t\tGESTAO COVID-19 - TESTES\t *");
     printf("\n**********************************************************");
-    printf("\n   Testes registados: %4d", numTestes);
+    printf("\n   Testes Realizados: %4d \tTestes Agendados: %4d\n   Total de Testes: %4d",numTestesRealizados, numTestesAgendados, numTestes);
     printf("\n**********************************************************");
     printf("\n[1] - Adicionar Teste;");
     printf("\n[2] - Atualizar Teste;");
+    printf("\n[3] - Listar Testes;");
     printf("\n[0] - Voltar.");
     printf("\n\nEscolha uma das opções: ");
 

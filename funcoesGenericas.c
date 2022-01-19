@@ -32,6 +32,65 @@ void escreverData (tipoData data)
     printf("%02d/%02d/%d", data.dia, data.mes, data.ano);
 }
 
+void escreverHora (tipoHora hora) {
+    printf("%02d:%02d", hora.hora, hora.minuto);
+}
+
+void escreverMinutos (tipoHora hora) {
+    printf("%02d", hora.minuto);
+}
+
+tipoHora lerMinutos(char msg[], int minMinuto, int maxMinuto) {
+    tipoHora hora;
+    int controlo, erro = 0;
+
+    do {
+        erro = 0;
+        do {
+            printf(" %s", msg);
+            controlo = scanf("%d",&hora.minuto);
+            limparBuffer();
+            if(controlo != 1)
+                printf("\nERRO: Formato de Hora Inválido.\n");
+        } while(controlo != 1);
+        if (hora.minuto < minMinuto || hora.minuto > maxMinuto)
+        {
+            printf("\nErro: Minutos Inválidos\n");
+            erro = 1;
+        }
+    } while(erro);
+    return hora;
+}
+
+
+tipoHora lerHoraCompleta(char msg[], int minHora, int maxHora, int minMinuto, int maxMinuto) {
+    tipoHora hora;
+    int controlo, erro = 0;
+
+    do {
+        erro = 0;
+        do {
+            printf(" %s", msg);
+            controlo = scanf("%d:%d", &hora.hora, &hora.minuto);
+            limparBuffer();
+            if(controlo != 2)
+                printf("\nERRO: Formato de Hora Inválido.\n");
+        } while(controlo != 2);
+
+        if (hora.hora < minHora || hora.hora > maxHora)
+        {
+            printf("\nERRO: Hora Inválida\n");
+            erro = 1;
+        }
+        if (hora.minuto < minMinuto || hora.minuto > maxMinuto)
+        {
+            printf("\nErro: Minuto Inválido\n");
+            erro = 1;
+        }
+    } while(erro);
+    return hora;
+}
+
 tipoData lerData(char msg[], int minAno, int maxAno)
 {
     tipoData data;
