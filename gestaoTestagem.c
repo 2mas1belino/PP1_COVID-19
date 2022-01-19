@@ -13,7 +13,7 @@ tipoTeste *lerFichBinTestes(tipoTeste *vetorTeste, int *numTestes, int *numTeste
     ficheiro = fopen("dadosTeste.bin","rb");
     if (ficheiro == NULL)
     {
-        printf ("\n\nERRO: Não foi possível abrir o ficheiro \"dadosMembros.bin\"!");
+        printf ("\n\nERRO: Não foi possível abrir o ficheiro \"dadosMembros.bin\"!\n");
     }
     else
     {
@@ -116,13 +116,13 @@ void listarUmTeste(tipoTeste vetorTeste[], int numTestes, tipoMembro vetorMembro
         printf(" \n\t\tDesignação: %s", vetorTeste[posicaoTeste].designacao);
         printf(" \n\t\tNúmero de Utente do membro: %-5d", vetorTeste[posicaoTeste].numUtente);
         printf(" \n\t\tNome do Membro: %s", vetorMembro[posicaoMembro].nome);
-        printf(" \n\t\tEntidade:");
+        printf(" \n\t\tEntidade: ");
         if(vetorMembro[posicaoMembro].entidade == ESTUDANTE)
-            printf(" Estudante;");
+            printf(" Estudante.");
         else if(vetorMembro[posicaoMembro].entidade == DOCENTE)
-            printf(" Docente;");
+            printf(" Docente.");
         else
-            printf(" Técnico;");
+            printf(" Técnico.");
         printf(" \n\t\tTeste: ");
         if(vetorTeste[posicaoTeste].teste == TESTE_PCR)
             printf("PCR");
@@ -291,7 +291,7 @@ void atualizarTeste(tipoTeste vetorTeste[], int *numTestes, tipoMembro vetorMemb
 
             if(manterValores == 2)
             {
-                vetorTeste[posicaoTeste].resultado = lerInteiro("\nIndique o resultado do teste:\n[1] - Negativo; \n[2] - Positivo; \n[3] - Inconlusivo", NEGATIVO, INCONCLUSIVO,NAO);
+                vetorTeste[posicaoTeste].resultado = lerInteiro("\nIndique o resultado do teste:\n[1] - Negativo; \n[2] - Positivo; \n[3] - Inconlusivo.\nEscolha uma das opções:", NEGATIVO, INCONCLUSIVO,NAO);
                 manterValores = 0;
                 if(resultadoTesteAntigo == -1 && vetorTeste[posicaoMembro].resultado != -1)
                 {
@@ -306,9 +306,6 @@ void atualizarTeste(tipoTeste vetorTeste[], int *numTestes, tipoMembro vetorMemb
             }
 
             posicaoMembro = pesquisaMembro(vetorMembro, numMembros, vetorTeste[posicaoTeste].numUtente);
-
-            printf("\n\nPOSICAO MEMBRO %d", posicaoMembro);
-            printf("\n\nEstado confinamento %d", vetorMembro[posicaoMembro].estadoConfinamento);
 
             switch(vetorTeste[posicaoTeste].resultado)
             {

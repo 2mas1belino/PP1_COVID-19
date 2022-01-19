@@ -36,7 +36,7 @@ int menuMembros(int numMembros, int numMembrosVacinados)
     int opcao;
 
     printf("\n**********************************************************");
-    printf("\n*\t\t\tGESTAO COVID-19 - MEMBROS\t *");
+    printf("\n*\t\tGESTAO COVID-19 - MEMBROS\t\t *");
     printf("\n**********************************************************");
     printf("\n   Membros registados: %4d", numMembros);
     printf("\n   Membros vacinados: %4d", numMembrosVacinados);
@@ -57,7 +57,7 @@ int menuTestes(int numTestes, int numTestesAgendados, int numTestesRealizados)
     int opcao;
 
     printf("\n**********************************************************");
-    printf("\n*\t\t\tGESTAO COVID-19 - TESTES\t *");
+    printf("\n*\t\tGESTAO COVID-19 - TESTES\t\t *");
     printf("\n**********************************************************");
     printf("\n   Testes Realizados: %4d \tTestes Agendados: %4d\n   Total de Testes: %4d",numTestesRealizados, numTestesAgendados, numTestes);
     printf("\n**********************************************************");
@@ -79,7 +79,7 @@ int menuConfinamento()
     int opcao;
 
     printf("\n**********************************************************");
-    printf("\n*\t\t\tGESTAO COVID-19 - CONFINAMENTOS\t *");
+    printf("\n*\t\tGESTAO COVID-19 - CONFINAMENTOS\t\t *");
     printf("\n**********************************************************");
     printf("\n[1] - Atualizar estado de Confinamento;");
     printf("\n[2] - Listar casos de Confinamento;");

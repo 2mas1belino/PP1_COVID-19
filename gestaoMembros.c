@@ -49,12 +49,12 @@ void registarMembro(tipoMembro vetorMembros[], int *numMembros, int *numMembrosV
 
         lerString("\n*Nome: ", vetorMembros[*numMembros].nome, MAX_STRING, SIM);
         vetorMembros[*numMembros].entidade = lerInteiro("\n*Entidade:\n\n\t[0] - Estudante;\n\t[1] - Docente;\n\t[2] - Técnico.\n\n\tEscolha uma das opções", ESTUDANTE, TECNICO, SIM);
-        vetorMembros[*numMembros].dataNascimento = lerData("\n*Data de nascimento (Formato: dd/mm/aaaa):", MIN_ANO, MAX_ANO);
+        vetorMembros[*numMembros].dataNascimento = lerData("\n*Data de nascimento (Formato: dd/mm/aaaa): ", MIN_ANO, MAX_ANO);
         vetorMembros[*numMembros].estadoConfinamento = lerInteiro("\n*Estado de confinamento:\n\n\t[0] - Não confinado;\n\t[1] - Confinado;\n\t[2] - Quarentena.\n\n\tEscolha uma das opções", 0, QUARENTENA, SIM);
         vetorMembros[*numMembros].estadoVacinacao = lerInteiro("\n*Estado de vacinação:\n\n\t[0] - Não vacinado;\n\t[1] - Vacinado com primeira dose;\n\t[2] - Vacinado com segunda dose;\n\t[3] - Vacinado com terceira dose.\n\n\tEscolha uma das opções", SEM_VACINA, DOSE3, SIM);
         if(vetorMembros[*numMembros].estadoVacinacao != SEM_VACINA)
         {
-            vetorMembros[*numMembros].ultimaVacina = lerData("\n*Data da última vacina (Formato: dd/mm/aaaa):", 2019, ANO_ATUAL);
+            vetorMembros[*numMembros].ultimaVacina = lerData("\n*Data da última vacina (Formato: dd/mm/aaaa): ", 2019, ANO_ATUAL);
             (*numMembrosVacinados)++;
         }
 
@@ -220,7 +220,7 @@ void atualizarEstadoVacinacao(tipoMembro vetorMembro[], int numMembros, int *num
 
 void listarDadosMembro(tipoMembro vetorMembro[], int numMembros)
 {
-    printf("\n-------- MOSTRAR DADOS MEMBRO -------- ");
+    printf("\n\t\t-------- MOSTRAR DADOS MEMBRO -------- ");
 
     if(numMembros == 0)
         printf("\nATENÇÃO: Ainda não foram inseridos membros.");
@@ -228,7 +228,7 @@ void listarDadosMembro(tipoMembro vetorMembro[], int numMembros)
     {
         for(int i = 0; i < numMembros; i++)
         {
-            printf("\n\n---------------------------------------------------------------------------------------------\n");
+            printf("\n\n\t*****************************************************\n");
             printf(" \n\t\tMembro numero: %-3d", i+1);
             printf(" \n\t\tNúmero de Utente: %-5d", vetorMembro[i].numUtente);
             printf(" \n\t\tNome: %s",vetorMembro[i].nome);
@@ -252,14 +252,13 @@ void listarDadosMembro(tipoMembro vetorMembro[], int numMembros)
 
             printf(" \n\t\tEstado Vacinação:");
             if(vetorMembro[i].estadoVacinacao == SEM_VACINA)
-                printf(" Sem Vacina;");
+                printf(" Sem Vacina.\n");
             else if(vetorMembro[i].estadoVacinacao == DOSE1)
-                printf(" 1ª Dose da Vacina;");
+                printf(" 1ª Dose da Vacina.\n");
             else if(vetorMembro[i].estadoVacinacao == DOSE2)
-                printf(" 2ª Dose da Vacina;");
+                printf(" 2ª Dose da Vacina.\n");
             else
-                printf(" 3ª Dose da Vacina;");
-            printf("\n\n---------------------------------------------------------------------------------------------\n");
+                printf(" 3ª Dose da Vacina.\n");
         }
     }
 }
