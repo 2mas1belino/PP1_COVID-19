@@ -1,0 +1,38 @@
+
+Resultado:  POSITIVO
+Nr. Utente: 123456789
+Nome: Renato Medeiros
+Estado de Vacinação: 2
+
+==================================
+
+
+Resultado:  INCONCLUSIVO
+Nr. Utente: 123456789
+Nome: Renato Medeiros
+Estado de Vacinação: 2
+
+==================================
+
+
+
+
+==================================
+
+
+Resultado:  INCONCLUSIVO
+Nr. Utente: 123456788
+Nome: Tomas Umbelino
+Estado de Vacinação: 2
+
+==================================
+
+
+
+Resultado:  POSITIVO
+Nr. Utente: 123456789
+Nome: Renato Medeiros
+Estado de Vacinação: 2
+
+==================================
+

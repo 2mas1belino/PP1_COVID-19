@@ -4,8 +4,14 @@
 #define SIM 1
 #define NAO 0
 
+#define MIN_HORA 0
+#define MAX_HORA 24
+
+#define MIN_MINUTO 0
+#define MAX_MINUTO 59
+
 typedef struct {
-    int hora, minuto, segundo;
+    int hora, minuto;
 } tipoHora;
 
 typedef struct{
@@ -21,5 +27,7 @@ void escreverData (tipoData data);
 void limparBuffer(void);
 void divisorCMD();
 int lerInteiroDigitos (char msg[], int tamanho, int obrigatorio);
+tipoHora lerHoraCompleta(char msg[], int minHora, int maxHora, int minMinuto, int maxMinuto);
+void escreverHora(tipoHora hora);
 
 #endif // FUNCOESGENERICAS_H_INCLUDED

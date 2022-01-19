@@ -1,39 +1,41 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
-#include <math.h>
 
 #include "funcoesGenericas.h"
 #include "gestaoMenu.h"
 #include "gestaoMembros.h"
+#include "gestaoTestagem.h"
 
 int main()
 {
     setlocale(LC_ALL, "Portuguese");
 
     tipoMembro vetorMembros[MAX_MEMBROS];
+    tipoTeste *vetorTeste;
+
     int numMembros = 0;
-    int numTestesRealizados = 0;
-    int numTestesAgendados = 0;
-    int numMembrosVacinados = 0;
+    int numTestes = 0, numTestesDiario = 0, numTestesRealizados = 0, numTestesAgendados = 0, numMembrosVacinados = 0;
     int opcao1, opcao2;
 
-    lerFichBinario(vetorMembros, &numMembros);
+    vetorTeste = NULL;
+    vetorTeste = lerFichBinTestes(vetorTeste, &numTestes, &numTestesAgendados, &numTestesRealizados);
+    lerFichBinMembros(vetorMembros, &numMembros, &numMembrosVacinados);
 
     do
     {
-        opcao1 = menuPrincipal(numMembros, numTestesRealizados, numTestesAgendados, numMembrosVacinados);
+        opcao1 = menuPrincipal(numMembros, numTestesAgendados, numTestesRealizados, numMembrosVacinados);
         switch(opcao1)
         {
         case 1:
             do
             {
-                opcao2 = menuMembros(numMembros, 1);
+                opcao2 = menuMembros(numMembros, numMembrosVacinados);
                 switch (opcao2)
                 {
                 case 1 :
                     divisorCMD();
-                    registarMembro(vetorMembros, &numMembros);
+                    registarMembro(vetorMembros, &numMembros, &numMembrosVacinados);
                     break;
                 case 2:
                     divisorCMD();
@@ -50,7 +52,7 @@ int main()
             break;
         case 2:
             divisorCMD();
-            atualizarEstadoVacinacao(vetorMembros, numMembros);
+            atualizarEstadoVacinacao(vetorMembros, numMembros, &numMembrosVacinados);
             break;
         case 3:
             divisorCMD();
@@ -60,16 +62,20 @@ int main()
             divisorCMD();
             do
             {
-                opcao2 = menuTestes(numTestesRealizados);
+                opcao2 = menuTestes(numTestes, numTestesAgendados, numTestesRealizados);
                 switch (opcao2)
                 {
                 case 1 :
                     divisorCMD();
-                    registarMembro(vetorMembros, &numMembros);
+                    vetorTeste = agendarTeste(vetorTeste, vetorMembros, &numTestes, &numTestesDiario, numMembros, &numTestesRealizados, &numTestesAgendados);
                     break;
                 case 2:
                     divisorCMD();
-                    listarDadosMembro(vetorMembros, numMembros);
+                    atualizarTeste(vetorTeste, &numTestes,vetorMembros,numMembros, &numTestesAgendados, &numTestesRealizados);
+                    break;
+                case 3:
+                    divisorCMD();
+                    listarTestes(vetorTeste,numTestes);
                     break;
                 default:
                     printf("\n\nERRO: Opção inválida!\n\n");
@@ -79,11 +85,13 @@ int main()
             break;
         case 5:
             divisorCMD();
-            escreverFichBinario(vetorMembros, numMembros);
+            escreverFichBinMembros(vetorMembros, numMembros, numMembrosVacinados);
+            escreverFichBinTestes(vetorTeste,numTestes,numTestesAgendados,numTestesRealizados);
             break;
         case 6:
             divisorCMD();
-            lerFichBinario(vetorMembros, &numMembros);
+            lerFichBinMembros(vetorMembros, &numMembros, &numMembrosVacinados);
+            lerFichBinTestes(vetorTeste,&numTestes,&numTestesAgendados,&numTestesRealizados);
             break;
         case 0:
             divisorCMD();
@@ -93,5 +101,7 @@ int main()
         }
     }
     while(opcao1 != 0);
+
+    free(vetorTeste);
     return 0;
 }

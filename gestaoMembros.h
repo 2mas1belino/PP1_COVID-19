@@ -1,14 +1,15 @@
 #ifndef GESTAOMEMBROS_H_INCLUDED
 #define GESTAOMEMBROS_H_INCLUDED
 
+#include <stdio.h>
+#include <string.h>
 #include "funcoesGenericas.h"
-
-#define MAX_STRING 50
 
 #define MIN_ANO 1900
 #define MAX_ANO 2050
 #define ANO_ATUAL 2022
 
+#define MAX_STRING 50
 
 #define MIN_MEMBROS 1
 #define MAX_MEMBROS 200
@@ -20,7 +21,7 @@
 #define DOSE1 1
 #define DOSE2 2
 #define DOSE3 3
-#define SEM_VACINA 4
+#define SEM_VACINA 0
 
 typedef struct {
     int numUtente;
@@ -32,14 +33,13 @@ typedef struct {
     tipoData ultimaVacina;
 }tipoMembro;
 
-void escreverFichBinario(tipoMembro vetorMembros[], int numMembros);
-void lerFichBinario(tipoMembro vetorMembros[], int *numMembros);
-//void escreverFichTexto(tipoMembro vetorMembros[], int numMembros);
+void escreverFichBinMembros(tipoMembro vetorMembros[], int numMembros, int numMembrosVacinados);
+void lerFichBinMembros(tipoMembro vetorMembros[], int *numMembros, int *numMembrosVacinados);
 
-void registarMembro(tipoMembro vetorMembros[], int *numMembros);
-void listarDadosMembro(tipoMembro membro[], int numMembros);
-void atualizarEstadoVacinacao(tipoMembro membro[], int numMembros);
-void atualizarEstadoConfinamento(tipoMembro membro[], int numMembros);
+void registarMembro(tipoMembro vetorMembros[], int *numMembros, int *numMembrosVacinados);
+void listarDadosMembro(tipoMembro vetorMembro[], int numMembros);
+void atualizarEstadoVacinacao(tipoMembro vetorMembro[], int numMembros, int *numMembrosVacinados);
+void atualizarEstadoConfinamento(tipoMembro vetorMembro[], int numMembros);
 int pesquisaMembro(tipoMembro vetorMembro[], int numMembros, int numUtente);
 
 #endif // GESTAOMEMBROS_H_INCLUDED
