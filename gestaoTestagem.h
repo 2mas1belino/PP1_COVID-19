@@ -1,8 +1,8 @@
 #ifndef GESTAOTESTAGEM_H_INCLUDED
 #define GESTAOTESTAGEM_H_INCLUDED
 
-#include "funcoesGenericas.h"
 #include "gestaoMembros.h"
+#include "funcoesGenericas.h"
 
 #define MAX_TESTES_PCR 15
 
@@ -25,17 +25,19 @@ typedef struct {
     int numUtente;
     int resultado;
     tipoHora horaColheita;
-    tipoHora tempoDuracao;
+    int tempoDuracao;
 }tipoTeste;
 
+void logTestagem(tipoTeste teste, tipoMembro membro, char resultado[]);
 tipoTeste *agendarTeste(tipoTeste *vetorTeste, tipoMembro vetorMembro[], int *numTestes, int *numTestesDiario, int numMembros, int *numTestesRealizados, int *numTestesAgendados);
 tipoTeste leDadosTeste();
-void atualizarTeste(tipoTeste vetorTeste[], int *numTestes, tipoMembro vetorMembro[], int numMembros);
+void atualizarTeste(tipoTeste vetorTeste[], int *numTestes, tipoMembro vetorMembro[], int numMembros, int *numTestesAgendados, int *numTestesRealizados);
 int pesquisaTeste(tipoTeste vetorTeste[], int numTestes, char desiganacaoTeste[]);
 void listarTestes(tipoTeste vetorTeste[], int numTestes);
-
-int contadorTestes(tipoTeste vetorTeste[], int numTestes, int numUtente);
+void escreverFichBinTestes(tipoTeste *vetorTeste, int numTestes, int numTestesAgendados, int numTestesRealizados);
+tipoTeste *lerFichBinTestes(tipoTeste *vetorTeste, int *numTestes, int *numTestesAgendados, int *numTestesRealizados);
+/*int contadorTestes(tipoTeste vetorTeste[], int numTestes, int numUtente);
 int contadorTestesRealizados(tipoTeste vetorTeste[], int numTestes, int numUtente);
-int contadorTestesAgendados(tipoTeste vetorTeste[], int numTestes, int numUtente);
+int contadorTestesAgendados(tipoTeste vetorTeste[], int numTestes, int numUtente);*/
 
 #endif // GESTAOTESTAGEM_H_INCLUDED

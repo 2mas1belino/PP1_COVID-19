@@ -1,34 +1,39 @@
-#include <stdio.h>
-#include <string.h>
-
 #include "gestaoMembros.h"
-#include "funcoesGenericas.h"
+#include "gestaoTestagem.h"
 
 void registarMembro(tipoMembro vetorMembros[], int *numMembros, int *numMembrosVacinados)
 {
-
+    int posicaoMembro = 0;
     printf("\n-------- REGISTAR MEMBRO -------- ");
 
     if (*numMembros == MAX_MEMBROS)
         printf("\n\nERRO: Limite máximo de membros registados atingidos!");
     else
     {
-        vetorMembros[*numMembros].numUtente = lerInteiroDigitos("\n*Número de utente", 9, SIM);
-        //if numUtente já existe perguntar se quer efetivamente adicionar um membro ou não
+        do {
+            vetorMembros[*numMembros].numUtente = lerInteiroDigitos("\n*Número de utente", 9, SIM);
+            posicaoMembro = pesquisaMembro(vetorMembros, *numMembros, vetorMembros[*numMembros].numUtente);
+            if(posicaoMembro != -1)
+                printf("\n\nERRO: Número de Utente indicado já existe.");
+        } while(posicaoMembro != -1);
+
         lerString("\n*Nome: ", vetorMembros[*numMembros].nome, MAX_STRING, SIM);
         vetorMembros[*numMembros].entidade = lerInteiro("\n*Entidade:\n\n\t0 - Estudante;\n\t1 - Docente;\n\t2 - Técnico.\n\n\tEscolha uma das opções", 0, 2, SIM);
         vetorMembros[*numMembros].dataNascimento = lerData("\n*Data de nascimento (Formato: dd/mm/aaaa):", MIN_ANO, MAX_ANO);
         vetorMembros[*numMembros].estadoConfinamento = lerInteiro("\n*Estado de confinamento:\n\n\t0 - Não confinado;\n\t1 - Confinado;\n\t2 - Quarentena.\n\n\tEscolha uma das opções", 0, 2, SIM);
         vetorMembros[*numMembros].estadoVacinacao = lerInteiro("\n*Estado de vacinação:\n\n\t0 - Não vacinado;\n\t1 - Vacinado com primeira dose;\n\t2 - Vacinado com segunda dose;\n\t3 - Vacinado com terceira dose.\n\n\tEscolha uma das opções", 0, 3, SIM);
-        if(vetorMembros[*numMembros].estadoVacinacao != SEM_VACINA)
+        printf("\n\n\n\n\nVACINA: %d\n\n", vetorMembros[*numMembros].estadoVacinacao);
+        if(vetorMembros[*numMembros].estadoVacinacao != SEM_VACINA) {
+            vetorMembros[*numMembros].ultimaVacina = lerData("\n*Data da última vacina (Formato: dd/mm/aaaa):", 2019, ANO_ATUAL);
             (*numMembrosVacinados)++;
-        vetorMembros[*numMembros].ultimaVacina = lerData("\n*Data da última vacina (Formato: dd/mm/aaaa):", 2019, ANO_ATUAL);
+        }
+
         printf("\n\nMENSAGEM: O registo do membro foi efetuado com sucesso.\n\n");
         (*numMembros)++;
     }
 }
 
-void escreverFichBinario(tipoMembro vetorMembros[], int numMembros)
+void escreverFichBinMembros(tipoMembro vetorMembros[], int numMembros, int numMembrosVacinados)
 {
     FILE *ficheiro;
     int controlo;
@@ -42,15 +47,14 @@ void escreverFichBinario(tipoMembro vetorMembros[], int numMembros)
     {
         controlo = fwrite(&numMembros,sizeof(int),1,ficheiro);
         if (controlo != 1)
-        {
             printf("\n\nERRO: Falha na escrita dos dados (1)!");
-        }
         else
         {
+            controlo = fwrite(&numMembrosVacinados,sizeof(int),1,ficheiro);
             controlo = fwrite(vetorMembros,sizeof(tipoMembro),numMembros,ficheiro);
             if(controlo != numMembros)
             {
-                printf("\n\nERRO: Falha na escrita dos dados (2)!");
+                printf("\n\nERRO: Falha na escrita dos dados (3)!");
             }
             else
             {
@@ -61,7 +65,7 @@ void escreverFichBinario(tipoMembro vetorMembros[], int numMembros)
     }
 }
 
-void lerFichBinario(tipoMembro vetorMembros[], int *numMembros)
+void lerFichBinMembros(tipoMembro vetorMembros[], int *numMembros, int *numMembrosVacinados)
 {
     FILE *ficheiro;
     int controlo;
@@ -75,15 +79,14 @@ void lerFichBinario(tipoMembro vetorMembros[], int *numMembros)
     {
         controlo = fread(&*numMembros,sizeof(int),1,ficheiro);
         if (controlo != 1)
-        {
             printf("\n\nERRO: Falha na leitura dos dados (1)!");
-        }
         else
         {
+            controlo = fread(&*numMembrosVacinados,sizeof(int),1,ficheiro);
             controlo = fread(vetorMembros,sizeof(tipoMembro),*numMembros,ficheiro);
             if(controlo != *numMembros)
             {
-                printf("\n\nERRO: Falha na leitura dos dados (2)!");
+                printf("\n\nERRO: Falha na leitura dos dados (3)!");
             }
             else
             {
@@ -93,36 +96,6 @@ void lerFichBinario(tipoMembro vetorMembros[], int *numMembros)
         }
     }
 }
-
-/*void escreverFichTexto(tipoMembro vetorMembros[], int numMembros)
-{
-    FILE *ficheiro;
-    int i;
-    ficheiro = fopen("dadosMembros.txt","w");
-    if (ficheiro == NULL)
-    {
-        printf ("\n\nERRO: Não foi possível abrir o ficheiro m\"dadosMembros.txt\"!");
-    }
-    else
-    {
-        fprintf(ficheiro,"%d\n", numMembros);
-        for (i=0; i<numMembros; i++)
-        {
-            fprintf(ficheiro,"%d\n",vetorMembros[i].numUtente);
-            fprintf(ficheiro,"%s\n",vetorMembros[i].nome);
-            fprintf(ficheiro,"%d\n",vetorMembros[i].entidade);
-            fprintf(ficheiro,"%d\n",vetorMembros[i].dataNascimento.dia);
-            fprintf(ficheiro,"%d\n",vetorMembros[i].dataNascimento.mes);
-            fprintf(ficheiro,"%d\n",vetorMembros[i].dataNascimento.ano);
-            fprintf(ficheiro,"%d\n",vetorMembros[i].estadoConfinamento);
-            fprintf(ficheiro,"%d\n",vetorMembros[i].estadoVacinacao);
-            fprintf(ficheiro,"%d\n",vetorMembros[i].ultimaVacina.dia);
-            fprintf(ficheiro,"%d\n",vetorMembros[i].ultimaVacina.mes);
-            fprintf(ficheiro,"%d\n",vetorMembros[i].ultimaVacina.ano);
-        }
-        fclose(ficheiro);
-    }
-}*/
 
 int pesquisaMembro(tipoMembro vetorMembro[], int numMembros, int numUtente)
 {
@@ -222,9 +195,8 @@ void atualizarEstadoVacinacao(tipoMembro vetorMembro[], int numMembros, int *num
     }
 }
 
-void listarDadosMembro(tipoMembro vetorMembro[], int numMembros, tipoTeste vetorTeste[], int numTestes)
+void listarDadosMembro(tipoMembro vetorMembro[], int numMembros)
 {
-    int totalTestes = 0, totalTestesRealizados = 0, totalTestesAgendados = 0;
     printf("\n-------- MOSTRAR DADOS MEMBRO -------- ");
 
     if(numMembros == 0)
@@ -264,17 +236,6 @@ void listarDadosMembro(tipoMembro vetorMembro[], int numMembros, tipoTeste vetor
                 printf(" 2ª Dose da Vacina;");
             else
                 printf(" 3ª Dose da Vacina;");
-
-            totalTestes = contadorTestes(vetorTeste,numTestes,vetorMembro[i].numUtente);
-            printf(" \n\t\tTotal de Testes: %d", totalTestes);
-
-            totalTestesRealizados = contadorTestesRealizados(vetorTeste,numTestes,vetorMembro[i].numUtente);
-            printf(" \n\t\tTotal de Testes Agendados: %d", totalTestesRealizados);
-
-            printf(" \n\t\tTestes Agendados: ");
-            totalTestesAgendados = contadorTestesAgendados(vetorTeste,numTestes,vetorMembro[i].numUtente);
-            printf(" \n\n\t\t Total de testes Agendados: %d", totalTestesAgendados);
-
             printf("\n\n---------------------------------------------------------------------------------------------\n");
         }
     }

@@ -4,8 +4,6 @@
 #define SIM 1
 #define NAO 0
 
-#define MAX_STRING 50
-
 #define MIN_HORA 0
 #define MAX_HORA 24
 
@@ -30,8 +28,6 @@ void limparBuffer(void);
 void divisorCMD();
 int lerInteiroDigitos (char msg[], int tamanho, int obrigatorio);
 tipoHora lerHoraCompleta(char msg[], int minHora, int maxHora, int minMinuto, int maxMinuto);
-tipoHora lerMinutos(char msg[], int minMinuto, int maxMinuto);
 void escreverHora(tipoHora hora);
-void escreverMinutos(tipoHora hora);
 
 #endif // FUNCOESGENERICAS_H_INCLUDED

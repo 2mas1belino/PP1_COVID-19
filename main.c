@@ -14,13 +14,13 @@ int main()
     tipoMembro vetorMembros[MAX_MEMBROS];
     tipoTeste *vetorTeste;
 
-    vetorTeste = NULL;
-
     int numMembros = 0;
     int numTestes = 0, numTestesDiario = 0, numTestesRealizados = 0, numTestesAgendados = 0, numMembrosVacinados = 0;
     int opcao1, opcao2;
 
-    lerFichBinario(vetorMembros, &numMembros);
+    vetorTeste = NULL;
+    vetorTeste = lerFichBinTestes(vetorTeste, &numTestes, &numTestesAgendados, &numTestesRealizados);
+    lerFichBinMembros(vetorMembros, &numMembros, &numMembrosVacinados);
 
     do
     {
@@ -39,7 +39,7 @@ int main()
                     break;
                 case 2:
                     divisorCMD();
-                    listarDadosMembro(vetorMembros, numMembros, vetorTeste, numTestes);
+                    listarDadosMembro(vetorMembros, numMembros);
                     break;
                 case 0:
                     //fazer que volte para o menu principal
@@ -71,7 +71,7 @@ int main()
                     break;
                 case 2:
                     divisorCMD();
-                    atualizarTeste(vetorTeste, &numTestes,vetorMembros,numMembros);
+                    atualizarTeste(vetorTeste, &numTestes,vetorMembros,numMembros, &numTestesAgendados, &numTestesRealizados);
                     break;
                 case 3:
                     divisorCMD();
@@ -85,11 +85,13 @@ int main()
             break;
         case 5:
             divisorCMD();
-            escreverFichBinario(vetorMembros, numMembros);
+            escreverFichBinMembros(vetorMembros, numMembros, numMembrosVacinados);
+            escreverFichBinTestes(vetorTeste,numTestes,numTestesAgendados,numTestesRealizados);
             break;
         case 6:
             divisorCMD();
-            lerFichBinario(vetorMembros, &numMembros);
+            lerFichBinMembros(vetorMembros, &numMembros, &numMembrosVacinados);
+            lerFichBinTestes(vetorTeste,&numTestes,&numTestesAgendados,&numTestesRealizados);
             break;
         case 0:
             divisorCMD();
