@@ -5,7 +5,8 @@
 #include "gestaoMembros.h"
 #include "gestaoTestagem.h"
 
-int menuPrincipal(int nrMembros, int nrTestesAgendados, int nrTestesRealizados, int nrMembrosVacinados) {
+int menuPrincipal(int nrMembros, int nrTestesAgendados, int nrTestesRealizados, int nrMembrosVacinados)
+{
 
     int opcao;
 
@@ -30,7 +31,8 @@ int menuPrincipal(int nrMembros, int nrTestesAgendados, int nrTestesRealizados, 
     return opcao;
 }
 
-int menuMembros(int numMembros, int numMembrosVacinados) {
+int menuMembros(int numMembros, int numMembrosVacinados)
+{
     int opcao;
 
     printf("\n**********************************************************");
@@ -50,7 +52,8 @@ int menuMembros(int numMembros, int numMembrosVacinados) {
     return opcao;
 }
 
-int menuTestes(int numTestes, int numTestesAgendados, int numTestesRealizados) {
+int menuTestes(int numTestes, int numTestesAgendados, int numTestesRealizados)
+{
     int opcao;
 
     printf("\n**********************************************************");
@@ -71,3 +74,20 @@ int menuTestes(int numTestes, int numTestesAgendados, int numTestesRealizados) {
     return opcao;
 }
 
+int menuConfinamento()
+{
+    int opcao;
+
+    printf("\n**********************************************************");
+    printf("\n*\t\t\tGESTAO COVID-19 - CONFINAMENTOS\t *");
+    printf("\n**********************************************************");
+    printf("\n[1] - Atualizar estado de Confinamento;");
+    printf("\n[2] - Listar casos de Confinamento;");
+    printf("\n[0] - Voltar.");
+    printf("\n\nEscolha uma das opções: ");
+
+    scanf("%d",&opcao);
+    limparBuffer();
+
+    return opcao;
+}

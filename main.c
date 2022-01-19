@@ -56,7 +56,27 @@ int main()
             break;
         case 3:
             divisorCMD();
-            atualizarEstadoConfinamento(vetorMembros, numMembros);
+            do
+            {
+                opcao2 = menuConfinamento();
+                switch (opcao2)
+                {
+                case 1 :
+                    divisorCMD();
+                    atualizarEstadoConfinamento(vetorMembros, numMembros);
+                    break;
+                case 2:
+                    divisorCMD();
+                    listarConfinamentos(vetorMembros,numMembros);
+                    break;
+                case 0:
+                    //fazer que volte para o menu principal
+                    break;
+                default:
+                    printf("\n\nERRO: Opção inválida!\n\n");
+                }
+            }
+            while(opcao2 != 0);
             break;
         case 4:
             divisorCMD();
@@ -65,24 +85,24 @@ int main()
                 opcao2 = menuTestes(numTestes, numTestesAgendados, numTestesRealizados);
                 switch (opcao2)
                 {
-                    case 1 :
-                        divisorCMD();
-                        vetorTeste = agendarTeste(vetorTeste, vetorMembros, &numTestes, &numTestesDiario, numMembros, &numTestesRealizados, &numTestesAgendados);
-                        break;
-                    case 2:
-                        divisorCMD();
-                        atualizarTeste(vetorTeste, &numTestes,vetorMembros,numMembros, &numTestesAgendados, &numTestesRealizados);
-                        break;
-                    case 3:
-                        divisorCMD();
-                        listarTestes(vetorTeste,numTestes);
-                        break;
-                    case 4:
-                        divisorCMD();
-                        listarUmTeste(vetorTeste,numTestes,vetorMembros,numMembros);
-                        break;
-                    default:
-                        printf("\n\nERRO: Opção inválida!\n\n");
+                case 1 :
+                    divisorCMD();
+                    vetorTeste = agendarTeste(vetorTeste, vetorMembros, &numTestes, &numTestesDiario, numMembros, &numTestesRealizados, &numTestesAgendados);
+                    break;
+                case 2:
+                    divisorCMD();
+                    atualizarTeste(vetorTeste, &numTestes,vetorMembros,numMembros, &numTestesAgendados, &numTestesRealizados);
+                    break;
+                case 3:
+                    divisorCMD();
+                    listarTestes(vetorTeste,numTestes);
+                    break;
+                case 4:
+                    divisorCMD();
+                    listarUmTeste(vetorTeste,numTestes,vetorMembros,numMembros);
+                    break;
+                default:
+                    printf("\n\nERRO: Opção inválida!\n\n");
                 }
             }
             while(opcao2 != 0);

@@ -18,7 +18,8 @@
 #define QUARENTENA 2
 #define ISOLAMENTO 3
 
-typedef struct {
+typedef struct
+{
     char designacao[MAX_STRING];
     int teste;
     tipoData dataRealizacao;
@@ -26,7 +27,8 @@ typedef struct {
     int resultado;
     tipoHora horaColheita;
     int tempoDuracao;
-}tipoTeste;
+} tipoTeste;
+
 
 void listarUmTeste(tipoTeste vetorTeste[], int numTestes, tipoMembro vetorMembro[], int numMembros);
 void logTestagem(tipoTeste teste, tipoMembro membro, char resultado[]);

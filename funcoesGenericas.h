@@ -10,11 +10,13 @@
 #define MIN_MINUTO 0
 #define MAX_MINUTO 59
 
-typedef struct {
+typedef struct
+{
     int hora, minuto;
 } tipoHora;
 
-typedef struct{
+typedef struct
+{
     int dia, mes, ano;
 } tipoData;
 

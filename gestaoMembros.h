@@ -23,7 +23,8 @@
 #define DOSE3 3
 #define SEM_VACINA 0
 
-typedef struct {
+typedef struct
+{
     int numUtente;
     char nome[MAX_STRING];
     int entidade;
@@ -31,11 +32,11 @@ typedef struct {
     int estadoConfinamento;
     int estadoVacinacao;
     tipoData ultimaVacina;
-}tipoMembro;
+} tipoMembro;
 
 void escreverFichBinMembros(tipoMembro vetorMembros[], int numMembros, int numMembrosVacinados);
 void lerFichBinMembros(tipoMembro vetorMembros[], int *numMembros, int *numMembrosVacinados);
-
+void listarConfinamentos(tipoMembro vetorMembro[], int numMembros);
 void registarMembro(tipoMembro vetorMembros[], int *numMembros, int *numMembrosVacinados);
 void listarDadosMembro(tipoMembro vetorMembro[], int numMembros);
 void atualizarEstadoVacinacao(tipoMembro vetorMembro[], int numMembros, int *numMembrosVacinados);

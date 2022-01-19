@@ -1,6 +1,34 @@
 #include "gestaoMembros.h"
 #include "gestaoTestagem.h"
 
+
+void listarConfinamentos(tipoMembro vetorMembro[], int numMembros)
+{
+
+    for(int i = 0; i < numMembros; i++)
+    {
+        if(vetorMembro[i].estadoConfinamento != NAO_CONFINADO)
+        {
+            printf("\n\n**********************************************************");
+            printf("\n\n\t\tMembro: %s", vetorMembro[i].nome);
+            printf(" \n\t\tEntidade:");
+            if(vetorMembro[i].entidade == ESTUDANTE)
+                printf(" Estudante;");
+            else if(vetorMembro[i].entidade == DOCENTE)
+                printf(" Docente;");
+            else
+                printf(" Técnico;");
+            printf(" \n\t\tEstado Confinamento:");
+            if(vetorMembro[i].estadoConfinamento == NAO_CONFINADO)
+                printf(" Não Confinado.\n");
+            else if(vetorMembro[i].estadoConfinamento == QUARENTENA)
+                printf(" Quarentena.\n");
+            else
+                printf(" Isolamento.\n");
+        }
+    }
+}
+
 void registarMembro(tipoMembro vetorMembros[], int *numMembros, int *numMembrosVacinados)
 {
     int posicaoMembro = 0;
@@ -10,12 +38,14 @@ void registarMembro(tipoMembro vetorMembros[], int *numMembros, int *numMembrosV
         printf("\n\nERRO: Limite máximo de membros registados atingidos!");
     else
     {
-        do {
+        do
+        {
             vetorMembros[*numMembros].numUtente = lerInteiroDigitos("\n*Número de utente", 9, SIM);
             posicaoMembro = pesquisaMembro(vetorMembros, *numMembros, vetorMembros[*numMembros].numUtente);
             if(posicaoMembro != -1)
                 printf("\n\nERRO: Número de Utente indicado já existe.");
-        } while(posicaoMembro != -1);
+        }
+        while(posicaoMembro != -1);
 
         lerString("\n*Nome: ", vetorMembros[*numMembros].nome, MAX_STRING, SIM);
         vetorMembros[*numMembros].entidade = lerInteiro("\n*Entidade:\n\n\t0 - Estudante;\n\t1 - Docente;\n\t2 - Técnico.\n\n\tEscolha uma das opções", 0, 2, SIM);
@@ -23,7 +53,8 @@ void registarMembro(tipoMembro vetorMembros[], int *numMembros, int *numMembrosV
         vetorMembros[*numMembros].estadoConfinamento = lerInteiro("\n*Estado de confinamento:\n\n\t0 - Não confinado;\n\t1 - Confinado;\n\t2 - Quarentena.\n\n\tEscolha uma das opções", 0, 2, SIM);
         vetorMembros[*numMembros].estadoVacinacao = lerInteiro("\n*Estado de vacinação:\n\n\t0 - Não vacinado;\n\t1 - Vacinado com primeira dose;\n\t2 - Vacinado com segunda dose;\n\t3 - Vacinado com terceira dose.\n\n\tEscolha uma das opções", 0, 3, SIM);
         printf("\n\n\n\n\nVACINA: %d\n\n", vetorMembros[*numMembros].estadoVacinacao);
-        if(vetorMembros[*numMembros].estadoVacinacao != SEM_VACINA) {
+        if(vetorMembros[*numMembros].estadoVacinacao != SEM_VACINA)
+        {
             vetorMembros[*numMembros].ultimaVacina = lerData("\n*Data da última vacina (Formato: dd/mm/aaaa):", 2019, ANO_ATUAL);
             (*numMembrosVacinados)++;
         }
@@ -173,7 +204,8 @@ void atualizarEstadoVacinacao(tipoMembro vetorMembro[], int numMembros, int *num
 
         valorVacinaNova = lerInteiro("",0,SEM_VACINA,SIM);
 
-        if(valorVacinaAntigo != valorVacinaNova) {
+        if(valorVacinaAntigo != valorVacinaNova)
+        {
             if(valorVacinaNova != 0)
                 vetorMembro[posicaoMembro].estadoVacinacao = valorVacinaNova;
 
