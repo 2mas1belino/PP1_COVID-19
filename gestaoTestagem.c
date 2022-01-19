@@ -4,6 +4,8 @@
 
 #include "gestaoTestagem.h"
 
+
+
 tipoTeste *lerFichBinTestes(tipoTeste *vetorTeste, int *numTestes, int *numTestesAgendados, int *numTestesRealizados)
 {
     FILE *ficheiro;
@@ -19,7 +21,7 @@ tipoTeste *lerFichBinTestes(tipoTeste *vetorTeste, int *numTestes, int *numTeste
         vetorTeste = realloc(vetorTeste, (*numTestes) * sizeof(tipoTeste));
         if (vetorTeste == NULL && *numTestes != 0)
         {
-            printf("\n\nERRO: Erro ao reservar a memoria (1)!");
+            printf("\n\nERRO: Erro ao reservar a memoria (1)!\n");
             *numTestes = 0;
         }
         else
@@ -40,12 +42,12 @@ void escreverFichBinTestes(tipoTeste *vetorTeste, int numTestes, int numTestesAg
 
     ficheiro = fopen("dadosTeste.bin", "wb");
     if(ficheiro == NULL)
-        printf ("\n\nERRO: Não foi possível abrir o ficheiro \"dadosTeste.bin\"!");
+        printf ("\n\nERRO: Não foi possível abrir o ficheiro \"dadosTeste.bin\"!\n");
     else
     {
         controlo = fwrite(&numTestes,sizeof(int),1,ficheiro);
         if (controlo != 1)
-            printf("\n\nERRO: Falha na escrita dos dados (1)!");
+            printf("\n\nERRO: Falha na escrita dos dados (1)!\n");
         else
         {
             controlo = fwrite(&numTestesAgendados,sizeof(int),1,ficheiro);
@@ -53,7 +55,7 @@ void escreverFichBinTestes(tipoTeste *vetorTeste, int numTestes, int numTestesAg
             controlo = fwrite(vetorTeste,sizeof(tipoTeste),numTestes,ficheiro);
             if(controlo != numTestes)
             {
-                printf("\n\nERRO: Falha na escrita dos dados (3)!");
+                printf("\n\nERRO: Falha na escrita dos dados (3)!\n");
             }
             else
             {
@@ -156,7 +158,7 @@ void listarTestes(tipoTeste vetorTeste[], int numTestes)
     printf("\n-------- MOSTRAR DADOS TESTES -------- ");
 
     if(numTestes == 0)
-        printf("\nATENÇÃO: Ainda não foram inseridos testes.");
+        printf("\nATENÇÃO: Ainda não foram inseridos testes.\n");
     else
     {
         for(int i = 0; i < numTestes; i++)
@@ -231,7 +233,7 @@ void atualizarTeste(tipoTeste vetorTeste[], int *numTestes, tipoMembro vetorMemb
                     vetorTeste[posicaoTeste].numUtente = lerInteiroDigitos("\nInsira o Número de Utente: ",9, NAO);
                     posicaoMembro = pesquisaMembro(vetorMembro, numMembros, vetorTeste[posicaoTeste].numUtente);
                     if(posicaoMembro == -1)
-                        printf("\n\nERRO: Número de Utente inválido!");
+                        printf("\n\nERRO: Número de Utente inválido!\n");
 
                 }
                 while(posicaoMembro == -1);
@@ -241,7 +243,7 @@ void atualizarTeste(tipoTeste vetorTeste[], int *numTestes, tipoMembro vetorMemb
 
             printf("\nDeseja manter a mesma data do teste? ( ");
             escreverData(vetorTeste[posicaoTeste].dataRealizacao);
-            manterValores = lerInteiro(" )\n[1] - Sim; \n[2] - Não\n\nEscolha uma das opções: ",1,2,NAO);
+            manterValores = lerInteiro(" )\n[1] - Sim; \n[2] - Não\n\nEscolha uma das opções: ",SIM,2,NAO);
             if(manterValores == 2)
             {
                 vetorTeste[posicaoTeste].dataRealizacao = lerData("\nInsira a nova Data de Realização do Teste: ", ANO_ATUAL, ANO_ATUAL);
@@ -250,7 +252,7 @@ void atualizarTeste(tipoTeste vetorTeste[], int *numTestes, tipoMembro vetorMemb
 
             printf("\nDeseja manter a mesma hora de colheita? ( ");
             escreverHora(vetorTeste[posicaoTeste].horaColheita);
-            manterValores = lerInteiro(" )\n[1] - Sim; \n[2] - Não\n\nEscolha uma das opções: ",1,2,NAO);
+            manterValores = lerInteiro(" )\n[1] - Sim; \n[2] - Não\n\nEscolha uma das opções: ",SIM,2,NAO);
             if(manterValores == 2)
             {
                 vetorTeste[posicaoTeste].horaColheita = lerHoraCompleta("\nInsira a nova Hora de Colheita do Teste: ", MIN_HORA, MAX_HORA, MIN_MINUTO, MAX_MINUTO);
@@ -258,7 +260,7 @@ void atualizarTeste(tipoTeste vetorTeste[], int *numTestes, tipoMembro vetorMemb
             }
 
             printf("\nDeseja manter o mesmo Tempo de Duração? ( %d )", vetorTeste[posicaoTeste].tempoDuracao);
-            manterValores = lerInteiro(" )\n[1] - Sim; \n[2] - Não\n\nEscolha uma das opções: ",1,2,NAO);
+            manterValores = lerInteiro(" )\n[1] - Sim; \n[2] - Não\n\nEscolha uma das opções: ",SIM,2,NAO);
             if(manterValores == 2)
             {
                 vetorTeste[posicaoTeste].tempoDuracao = lerInteiro("\nInsira o tempo de duração do Teste: ", MIN_MINUTO, MAX_MINUTO, NAO);
@@ -285,7 +287,7 @@ void atualizarTeste(tipoTeste vetorTeste[], int *numTestes, tipoMembro vetorMemb
                 printf("( Sem resultado );");
                 break;
             }
-            manterValores = lerInteiro("\n[1] - Sim; \n[2] - Não\n\nEscolha uma das opções: ",1,2,NAO);
+            manterValores = lerInteiro("\n[1] - Sim; \n[2] - Não\n\nEscolha uma das opções: ",SIM,2,NAO);
 
             if(manterValores == 2)
             {
@@ -334,7 +336,7 @@ tipoTeste *agendarTeste(tipoTeste *vetorTeste, tipoMembro vetorMembro[], int *nu
     pTeste = vetorTeste;
 
     if(numMembros == 0)
-        printf("\n\nERRO: Nenhum membro registado, por favor registe um membro!");
+        printf("\n\nERRO: Nenhum membro registado, por favor registe um membro!\n");
     else if(*numTestesDiario >= MAX_TESTES_PCR)
         printf("\n\nERRO: Limite maximo de testes PCR realizados!");
     else
@@ -350,7 +352,7 @@ tipoTeste *agendarTeste(tipoTeste *vetorTeste, tipoMembro vetorMembro[], int *nu
                 vetorTeste = realloc(vetorTeste, (*numTestes+1)*sizeof(tipoTeste));
                 if(vetorTeste == NULL)
                 {
-                    printf("\nERRO: impossível alocar memoria para o teste.");
+                    printf("\nERRO: impossível alocar memoria para o teste.\n");
                     vetorTeste = pTeste;
                 }
                 else
@@ -384,10 +386,10 @@ tipoTeste *agendarTeste(tipoTeste *vetorTeste, tipoMembro vetorMembro[], int *nu
                 }
             }
             else
-                printf("\n\nERRO: Designação já existente. A designação de um teste tem que ser unica!");
+                printf("\n\nERRO: Designação já existente. A designação de um teste tem que ser unica!\n");
         }
         else
-            printf("\n\nERRO: Número de Utente indicado não está associado a nenhum Membro!");
+            printf("\n\nERRO: Número de Utente indicado não está associado a nenhum Membro!\n");
     }
     return vetorTeste;
 }
@@ -403,7 +405,7 @@ tipoTeste leDadosTeste()
     teste.horaColheita = lerHoraCompleta("\nInsira a hora de colheita do Teste: ",MIN_HORA, MAX_HORA, MIN_MINUTO, MAX_MINUTO);
     teste.tempoDuracao = lerInteiro("\nInsira o tempo de duração do Teste: ", MIN_MINUTO, MAX_MINUTO, SIM);
     teste.teste = lerInteiro("\n[1] - PCR; \n[2] - Antigénio; \n\nEscolha uma das opções: ",TESTE_PCR,TESTE_ANTIGENIO,SIM);
-    testeRealizado = lerInteiro("\nJá possui o resultado do teste?\n[1] - Sim; \n[2] - Não\n\nEscolha uma das opções: ",1,2,SIM);
+    testeRealizado = lerInteiro("\nJá possui o resultado do teste?\n[1] - Sim; \n[2] - Não\n\nEscolha uma das opções: ",SIM,2,SIM);
     if(testeRealizado == 2)
         teste.resultado = -1; // caso o utilizador nao indique o resultado
     else

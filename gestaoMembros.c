@@ -35,7 +35,7 @@ void registarMembro(tipoMembro vetorMembros[], int *numMembros, int *numMembrosV
     printf("\n-------- REGISTAR MEMBRO -------- ");
 
     if (*numMembros == MAX_MEMBROS)
-        printf("\n\nERRO: Limite máximo de membros registados atingidos!");
+        printf("\n\nERRO: Limite máximo de membros registados atingidos!\n");
     else
     {
         do
@@ -43,23 +43,22 @@ void registarMembro(tipoMembro vetorMembros[], int *numMembros, int *numMembrosV
             vetorMembros[*numMembros].numUtente = lerInteiroDigitos("\n*Número de utente", 9, SIM);
             posicaoMembro = pesquisaMembro(vetorMembros, *numMembros, vetorMembros[*numMembros].numUtente);
             if(posicaoMembro != -1)
-                printf("\n\nERRO: Número de Utente indicado já existe.");
+                printf("\n\nERRO: Número de Utente indicado já existe.\n");
         }
         while(posicaoMembro != -1);
 
         lerString("\n*Nome: ", vetorMembros[*numMembros].nome, MAX_STRING, SIM);
-        vetorMembros[*numMembros].entidade = lerInteiro("\n*Entidade:\n\n\t0 - Estudante;\n\t1 - Docente;\n\t2 - Técnico.\n\n\tEscolha uma das opções", 0, 2, SIM);
+        vetorMembros[*numMembros].entidade = lerInteiro("\n*Entidade:\n\n\t[0] - Estudante;\n\t[1] - Docente;\n\t[2] - Técnico.\n\n\tEscolha uma das opções", ESTUDANTE, TECNICO, SIM);
         vetorMembros[*numMembros].dataNascimento = lerData("\n*Data de nascimento (Formato: dd/mm/aaaa):", MIN_ANO, MAX_ANO);
-        vetorMembros[*numMembros].estadoConfinamento = lerInteiro("\n*Estado de confinamento:\n\n\t0 - Não confinado;\n\t1 - Confinado;\n\t2 - Quarentena.\n\n\tEscolha uma das opções", 0, 2, SIM);
-        vetorMembros[*numMembros].estadoVacinacao = lerInteiro("\n*Estado de vacinação:\n\n\t0 - Não vacinado;\n\t1 - Vacinado com primeira dose;\n\t2 - Vacinado com segunda dose;\n\t3 - Vacinado com terceira dose.\n\n\tEscolha uma das opções", 0, 3, SIM);
-        printf("\n\n\n\n\nVACINA: %d\n\n", vetorMembros[*numMembros].estadoVacinacao);
+        vetorMembros[*numMembros].estadoConfinamento = lerInteiro("\n*Estado de confinamento:\n\n\t[0] - Não confinado;\n\t[1] - Confinado;\n\t[2] - Quarentena.\n\n\tEscolha uma das opções", 0, QUARENTENA, SIM);
+        vetorMembros[*numMembros].estadoVacinacao = lerInteiro("\n*Estado de vacinação:\n\n\t[0] - Não vacinado;\n\t[1] - Vacinado com primeira dose;\n\t[2] - Vacinado com segunda dose;\n\t[3] - Vacinado com terceira dose.\n\n\tEscolha uma das opções", SEM_VACINA, DOSE3, SIM);
         if(vetorMembros[*numMembros].estadoVacinacao != SEM_VACINA)
         {
             vetorMembros[*numMembros].ultimaVacina = lerData("\n*Data da última vacina (Formato: dd/mm/aaaa):", 2019, ANO_ATUAL);
             (*numMembrosVacinados)++;
         }
 
-        printf("\n\nMENSAGEM: O registo do membro foi efetuado com sucesso.\n\n");
+        printf("\n\nMENSAGEM: O registo do membro foi efetuado com sucesso.\n");
         (*numMembros)++;
     }
 }
@@ -187,7 +186,7 @@ void atualizarEstadoVacinacao(tipoMembro vetorMembro[], int numMembros, int *num
             posicaoMembro = pesquisaMembro(vetorMembro,numMembros,numUtente);
 
             if(posicaoMembro == -1)
-                printf("\nERRO: O Número de Utente inserido não é válido.");
+                printf("\nERRO: O Número de Utente inserido não é válido.\n");
         }
         while(posicaoMembro == -1);
 

@@ -3,8 +3,7 @@
 
 #include "funcoesGenericas.h"
 
-void divisorCMD()
-{
+void divisorCMD() {
     printf("\n\n=========================================================================================\n\n");
 }
 
@@ -33,28 +32,23 @@ void escreverData (tipoData data)
     printf("%02d/%02d/%d", data.dia, data.mes, data.ano);
 }
 
-void escreverHora (tipoHora hora)
-{
+void escreverHora (tipoHora hora) {
     printf("%02d:%02d", hora.hora, hora.minuto);
 }
 
-tipoHora lerHoraCompleta(char msg[], int minHora, int maxHora, int minMinuto, int maxMinuto)
-{
+tipoHora lerHoraCompleta(char msg[], int minHora, int maxHora, int minMinuto, int maxMinuto) {
     tipoHora hora;
     int controlo, erro = 0;
 
-    do
-    {
+    do {
         erro = 0;
-        do
-        {
+        do {
             printf(" %s", msg);
             controlo = scanf("%d:%d", &hora.hora, &hora.minuto);
             limparBuffer();
             if(controlo != 2)
                 printf("\nERRO: Formato de Hora Inválido.\n");
-        }
-        while(controlo != 2);
+        } while(controlo != 2);
 
         if (hora.hora < minHora || hora.hora > maxHora)
         {
@@ -66,8 +60,7 @@ tipoHora lerHoraCompleta(char msg[], int minHora, int maxHora, int minMinuto, in
             printf("\nErro: Minuto Inválido\n");
             erro = 1;
         }
-    }
-    while(erro);
+    } while(erro);
     return hora;
 }
 
